@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import Product from "../models/Products"
+import Product from "../models/products.js"
 
 
 
@@ -15,7 +15,8 @@ export const getProduct = async (req, res) => {
 
 export const createProduct = async (req, res) => {
     const product = req.body
-    const newProduct = new Product({ ...product, createdAt: new Date.toISOString() })
+    console.log(product)
+    const newProduct = new Product({ ...product, createdAt: new Date().toISOString() })
     try {
         await newProduct.save()
         res.status(201).json(newProduct)
