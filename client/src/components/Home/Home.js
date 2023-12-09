@@ -1,14 +1,16 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-
+import Products from '../Products/Products';
 
 
 const Home = () => {
   const dispatch = useDispatch()
-  const products = useSelector((state) => state.posts);
 
   return (
-    <div></div>
+    <div>
+      <h1>Hello world</h1>
+      <Products />
+    </div>
   )
 }
 
