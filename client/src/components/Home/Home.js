@@ -1,8 +1,16 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import Products from '../Products/Products';
+
 
 const Home = () => {
+  const dispatch = useDispatch()
+
   return (
-    <div></div>
+    <div>
+      <h1></h1>
+      <Products />
+    </div>
   )
 }
 
