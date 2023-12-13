@@ -8,10 +8,10 @@ const Product = () => {
     return (
         <>
             <Grid>
-                one
+                {/* one */}
                 {products.map((product) => (
                     <Grid className="actionDiv" key={product._id} item >
-                        hey
+                        {/* hey */}
                         {product}
                     </Grid>
                 ))}
