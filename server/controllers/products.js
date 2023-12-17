@@ -10,7 +10,6 @@ export const getProduct = async (req, res) => {
     }
 }
 
-
 export const createProduct = async (req, res) => {
     const product = req.body
     const newProduct = new Product({ ...product, createdAt: new Date().toISOString() })
