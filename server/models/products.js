@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 const productSchema = mongoose.Schema({
     id: { type: String },
-    title: { type: String,  },
-    description: String,
+    title: { type: String, },
+    description: { type: String },
     tags: [String],
     productImage: { type: String, },
     createdAt: {

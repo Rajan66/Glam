@@ -4,7 +4,7 @@ const Product = ({ product }) => {
   return (
     <>
       <h1>
-        {product.title}
+        {/* {product.title} */}
       </h1>
     </>
   )
