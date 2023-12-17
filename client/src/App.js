@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import Products from './components/Products/Products';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
+import Admin from './components/Admin/Admin'
 
 import './App.css';
 
@@ -14,9 +15,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" Component={Home} />
-        <Route path="/products" Component={Products} />
+        <Route path="/admin" Component={Admin} />
       </Routes>
-
     </Router>
   );
 }
