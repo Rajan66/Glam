@@ -6,6 +6,6 @@ const API = axios.create({ baseURL: "http://localhost:5000" })
 export const fetchProducts = () => API.get('/products') 
 export const fetchProduct = (id) => API.get(`/products/${id}`)
 
-export const createProduct = (newProduct) => API.post(`admin/products/${id}`, newProduct)
+export const createProduct = (newProduct) => API.post(`admin/products/`, newProduct)
 export const updateProduct = (id, updatedProduct) => API.patch(`/admin/products/${id}`, updatedProduct)
 export const deleteProduct = (id) => API.delete(`/admin/products/${id}`)

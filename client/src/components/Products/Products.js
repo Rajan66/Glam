@@ -1,23 +1,24 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Grid } from '@mui/material'
+import Product from './Product/Product'
 
-const Product = () => {
+const Products = () => {
     const products = useSelector((state) => state.products)
     console.log(products)
     return (
         <>
             <Grid>
-                {/* one */}
                 {products.map((product) => (
-                    <Grid className="actionDiv" key={product._id} item >
-                        {/* hey */}
-                        {product}
+
+                    <Grid key={product._id} item>
+                        <Product product={product} />
                     </Grid>
                 ))}
+
             </Grid>
         </>
     )
 }
 
-export default Product
+export default Products
