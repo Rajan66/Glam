@@ -1,38 +1,34 @@
 import React from 'react'
 import './Card.css'
+import { Grid } from '@mui/material'
+import dummyImg from '../images/bg.jpg'
 
-const Card = () => {
+const Card = ({ products }) => {
+    // store 5-8 random products in a array and display in the featured products
     return (
         <div className='cards'>
             <div className='container'>
-                <h2>Khai k po lekhne vanya thiyeu birse hehe</h2>
+                <h2>Featured Products</h2>
                 <span className='line'></span>
                 <div className='content'>
-                    <div className='card'>
-                        <img></img>
-                        <p>Product 1 hogaya yeh toh</p>
-                        <p><span>Eyeshadow</span></p>
-                        <p>Money</p>
-                    </div>
-                    <div className='card'>
-                        <img></img>
-                        <p>Product 2 hogaya yeh toh</p>
-                        <p><span>Primer</span></p>
-                        <p>Money money</p>
-                    </div>
-                    <div className='card'>
-                        <img></img>
-                        <p>Product 3 hogaya yeh toh</p>
-                        <p><span>Blush</span></p>
-                        <p>Omg money</p>
-                    </div>
+                    {products.map((product) => (
+                        <Grid key={product._id} item>
+                            <div className='card'>
+                                <img src={dummyImg} width="100%" height="100%" />
+                                <p>{product.title}</p>
+                                <p><span>{product.tags}</span></p>
+                                <p>{product.price}</p>
+
+                            </div>
+                        </Grid>
+                    ))}
                 </div>
             </div>
 
         </div>
     )
-        
 
-    }
+
+}
 
 export default Card

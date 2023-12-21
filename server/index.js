@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import productRoutes from './routes/products.js'
+import userRoutes from './routes/user.js'
 import bodyParser from 'body-parser';
 
 const app = express()
@@ -14,9 +15,10 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use('/products', productRoutes)
+app.use('/user', userRoutes)
 
 
-const CONNECTION_URL = "mongodb+srv://rajan:glamhour123@glamhour.h3dan6r.mongodb.net/"
+const CONNECTION_URL = process.env.CONNECTION_URL
 const PORT = process.env.PORT || 5000;
 
 

@@ -1,20 +1,23 @@
+import React from 'react'
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom"
+
+
+import Products from './components/Products/Products';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
-import Hero from './components/Hero/Hero'
-import Card from './components/Card'
+import Admin from './components/Admin/Admin'
 
 import './App.css';
 
-
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar />
-      <Home />
-      <Hero />
-      <Card />
-
-    </div>
+      <Routes>
+        <Route path="/" Component={Home} />
+        <Route path="/admin" Component={Admin} />
+      </Routes>
+    </Router>
   );
 }
 
