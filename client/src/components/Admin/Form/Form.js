@@ -3,7 +3,7 @@ import { TextField, Button, Typography, Paper } from '@mui/material';
 import { createProduct, updateProduct } from '../../../actions/products';
 import { useDispatch, useSelector } from 'react-redux';
 
-const Form = ({ currentId }) => {
+const Form = ({ currentId,setCurrentId }) => {
     const dispatch = useDispatch()
     const [productData, setProductData] = useState({ title: '', description: '', tags: '', price: '' })
     const product = useSelector((state) => currentId ? state.products.find((p) => p._id === currentId) : null)
@@ -15,8 +15,9 @@ const Form = ({ currentId }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        // update takes a reload idk why 
         if (currentId) {
-            dispatch(updateProduct(currentId, ...productData))
+            dispatch(updateProduct(currentId, productData))
         } else {
             dispatch(createProduct(productData))
         }
@@ -24,6 +25,7 @@ const Form = ({ currentId }) => {
     }
 
     const clear = () => {
+        setCurrentId(null)
         setProductData({
             title: "",
             description: "",

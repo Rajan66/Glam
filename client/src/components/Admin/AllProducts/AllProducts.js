@@ -19,11 +19,11 @@ const AllProducts = ({ setCurrentId }) => {
                             <p>{product.title}</p>
                             <p><span>{product.tags}</span></p>
                             <p>{product.price}</p>
-                            <IconButton>
-                                <UpdateIcon color='primary' onClick={() => setCurrentId(product._id)} />
+                            <IconButton color='primary' onClick={() => setCurrentId(product._id)} >
+                                <UpdateIcon />
                             </IconButton>
-                            <IconButton >
-                                <DeleteIcon color='primary' onClick={() => dispatch(deleteProduct(product._id))} />
+                            <IconButton color='primary' onClick={() => dispatch(deleteProduct(product._id))} >
+                                <DeleteIcon />
                             </IconButton>
                         </div>
                     </Grid>

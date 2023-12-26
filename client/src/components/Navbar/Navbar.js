@@ -63,9 +63,9 @@ const Navbar = () => {
             <a href='/admin'>Admin</a>
           </li>
           <li>
-              <Button className='nav-item' onClick={handleLogout} variant='text' color='secondary'>
-                Logout
-              </Button>
+            <Button className='nav-item' onClick={handleLogout} variant='text' >
+              Logout
+            </Button>
           </li>
         </ul>
       </nav>
