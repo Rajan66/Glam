@@ -54,10 +54,10 @@ const Navbar = () => {
         </div>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className='nav-item'>
-            <a href='#'>Home</a>
+            <a href='/'>Home</a>
           </li>
           <li className='nav-item'>
-            <a href='#'>About</a>
+            <a href='/'>About</a>
           </li>
           <li className='nav-item'>
             <a href='/admin'>Admin</a>
