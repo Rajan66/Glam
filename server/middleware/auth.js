@@ -1,18 +1,19 @@
-import jwt from 'jsonwebtoken'
+const admin = require('../config/firebase-config');
 
-export const auth = async (req, res, next) => {
-    try {
-        const token = req.headers.authorization.split(" ")[1]
-        const isCustomAuth = token.length < 500
-
-        let decodedData
-
-        if (token && isCustomAuth) {
-            decodedData = jwt.verify(token, 'test')
-            req.userId = decodedData?.id
+class Middleware {
+    async decodeToken(req, res, next) {
+        const token = req.headers.authorization.split(' ')[1]
+        try {
+            const decodeValue = await admin.auth().verifyIdToken(token)
+            if (decodeValue) {
+                req.userId = decodeValue?.uid
+                return next()
+            }
+            return res.json({ message: 'Unauthorized!' })
+        } catch (error) {
+            return res.json({ message: error.message })
         }
-        next()
-    } catch (error) {
-        console.log(error)
     }
 }
+
+module.exports = new Middleware()

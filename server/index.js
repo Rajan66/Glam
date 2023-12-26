@@ -1,10 +1,9 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import cors from 'cors'
-import dotenv from 'dotenv'
-import productRoutes from './routes/products.js'
-import userRoutes from './routes/user.js'
-import bodyParser from 'body-parser';
+const express = require('express')
+const mongoose = require('mongoose')
+const cors = require('cors')
+const dotenv = require('dotenv')
+const productRoutes = require('./routes/products.js')
+const bodyParser = require('body-parser')
 
 const app = express()
 dotenv.config()
@@ -15,7 +14,6 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use('/products', productRoutes)
-app.use('/user', userRoutes)
 
 
 const CONNECTION_URL = process.env.CONNECTION_URL
@@ -25,7 +23,6 @@ const PORT = process.env.PORT || 5000;
 app.get('/', (req, res) => {
     res.send('Server running')
 })
-
 
 
 mongoose.connect(CONNECTION_URL)

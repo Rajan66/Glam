@@ -1,7 +1,7 @@
-import mongoose from "mongoose"
-import Product from "../models/products.js"
+const mongoose = require("mongoose")
+const Product = require("../models/products.js")
 
-export const getProduct = async (req, res) => {
+const getProduct = async (req, res) => {
     try {
         const products = await Product.find()
         res.status(200).json(products)
@@ -10,7 +10,7 @@ export const getProduct = async (req, res) => {
     }
 }
 
-export const createProduct = async (req, res) => {
+const createProduct = async (req, res) => {
     const product = req.body
     const newProduct = new Product({ ...product, createdAt: new Date().toISOString() })
     try {
@@ -21,7 +21,7 @@ export const createProduct = async (req, res) => {
     }
 }
 
-export const updateProduct = async (req, res) => {
+const updateProduct = async (req, res) => {
     const { id: _id } = req.params
     const product = req.body
     if (!mongoose.Types.ObjectId.isValid(_id)) {
@@ -31,11 +31,18 @@ export const updateProduct = async (req, res) => {
     res.json(updatedProduct)
 }
 
-export const deleteProduct = async (req, res) => {
+const deleteProduct = async (req, res) => {
     const { id } = req.params
     if (!mongoose.Types.ObjectId.isValid(id)) {
         res.status(404).send('No product with that id')
     }
     await Product.findByIdAndDelete(id)
     res.json({ message: "Product Deleted Successfully" })
+}
+
+module.exports = {
+    getProduct,
+    createProduct,
+    updateProduct,
+    deleteProduct
 }

@@ -5,6 +5,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { legacy_createStore as createStore } from 'redux';
 import { applyMiddleware, compose } from 'redux';
+import './config/firebase-config'
 
 
 import reducers from './reducers'
