@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
-import { Button } from '@mui/base'
+import { Button } from '@mui/material'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 
@@ -60,7 +60,7 @@ const Navbar = () => {
           <li className='nav-item'>
             <a href='#'>Contact</a>
           </li>
-          <Button className='nav-item' onClick={handleLogout}>
+          <Button className='nav-item' onClick={handleLogout} variant='contained'>
             Logout
           </Button>
         </ul>

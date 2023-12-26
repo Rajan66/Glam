@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { TextField, Button, Typography, Paper, TextareaAutosize } from '@mui/material';
-import { createProduct } from '../../actions/products';
+import { createProduct, getProducts } from '../../actions/products';
 import { useDispatch } from 'react-redux';
+import AllProducts from './AllProducts/AllProducts';
 
 const Admin = () => {
-
     const [productData, setProductData] = useState({ title: '', description: '', tags: '', price: '' })
     const dispatch = useDispatch();
-    const handleSubmit = (e) => {
 
+    useEffect(() => {
+        dispatch(getProducts())
+    })
+
+    const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(createProduct({ ...productData }))
         clear()
@@ -44,8 +48,7 @@ const Admin = () => {
                 </form>
 
             </Paper>
-
-
+            <AllProducts />
         </div>
     )
 }

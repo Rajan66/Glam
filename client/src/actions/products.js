@@ -20,3 +20,21 @@ export const createProduct = (product) => async (dispatch) => {
         console.log(error.message)
     }
 }
+
+export const updateProduct = (product) => async (dispatch) => {
+    try {
+        const { data } = await api.createProduct(product)
+        dispatch({ type: CREATE, payload: data })
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+export const deleteProduct = (product) => async (dispatch) => {
+    try {
+        const { data } = await api.createProduct(product)
+        dispatch({ type: CREATE, payload: data })
+    } catch (error) {
+        console.log(error.message)
+    }
+}
