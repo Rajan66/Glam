@@ -3,13 +3,11 @@ import DeleteIcon from "@mui/icons-material/Delete"
 import UpdateIcon from "@mui/icons-material/Edit"
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateProduct, deleteProduct } from '../../../actions/products'
+import { deleteProduct } from '../../../actions/products'
 
-
-const AllProducts = () => {
+const AllProducts = ({ setCurrentId }) => {
     const dispatch = useDispatch()
     const products = useSelector((state) => state.products)
-    console.log(products)
     return (
         <>
             <Grid>
@@ -21,12 +19,8 @@ const AllProducts = () => {
                             <p>{product.title}</p>
                             <p><span>{product.tags}</span></p>
                             <p>{product.price}</p>
-                            <Button onClick={() => dispatch(updateProduct(product._id, ...product))} startIcon={<UpdateIcon />}>
-
-                            </Button>
-                            <Button onClick={() => dispatch(deleteProduct(product._id))} startIcon={<DeleteIcon />}>
-
-                            </Button>
+                            <Button onClick={() => setCurrentId(product._id)} startIcon={<UpdateIcon />}></Button>
+                            <Button onClick={() => dispatch(deleteProduct(product._id))} startIcon={<DeleteIcon />}></Button>
                         </div>
                     </Grid>
                 ))}

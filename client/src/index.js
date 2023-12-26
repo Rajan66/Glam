@@ -7,10 +7,8 @@ import { legacy_createStore as createStore } from 'redux';
 import { applyMiddleware, compose } from 'redux';
 import './config/firebase-config'
 
-
 import reducers from './reducers'
 import { thunk } from 'redux-thunk'
-
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)))
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,6 +18,5 @@ root.render(
     <Provider store={store}>
       <App />
     </Provider>
-
   </React.StrictMode>
 );

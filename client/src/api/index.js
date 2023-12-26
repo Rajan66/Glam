@@ -41,8 +41,6 @@ API.interceptors.request.use(async (req) => {
     return Promise.reject(error);
 });
 
-
-
 export const fetchProducts = () => API.get('/products')
 export const fetchProduct = (id) => API.get(`/products/${id}`)
 
