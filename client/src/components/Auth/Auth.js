@@ -17,7 +17,7 @@ const Auth = () => {
 
         userCred.getIdToken()
           .then((token) => setToken(token))
-        navigate('/')
+        console.log(token)
       }
     })
   }, [])

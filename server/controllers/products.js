@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const Product = require("../models/products.js")
 
-const getProduct = async (req, res) => {
+const getProducts = async (req, res) => {
     try {
         const products = await Product.find()
         res.status(200).json(products)
@@ -41,7 +41,7 @@ const deleteProduct = async (req, res) => {
 }
 
 module.exports = {
-    getProduct,
+    getProducts,
     createProduct,
     updateProduct,
     deleteProduct
