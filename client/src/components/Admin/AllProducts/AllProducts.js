@@ -1,4 +1,4 @@
-import { Grid, Button } from '@mui/material'
+import { Grid, Button, IconButton } from '@mui/material'
 import DeleteIcon from "@mui/icons-material/Delete"
 import UpdateIcon from "@mui/icons-material/Edit"
 import React from 'react'
@@ -19,13 +19,17 @@ const AllProducts = ({ setCurrentId }) => {
                             <p>{product.title}</p>
                             <p><span>{product.tags}</span></p>
                             <p>{product.price}</p>
-                            <Button onClick={() => setCurrentId(product._id)} startIcon={<UpdateIcon />}></Button>
-                            <Button onClick={() => dispatch(deleteProduct(product._id))} startIcon={<DeleteIcon />}></Button>
+                            <IconButton>
+                                <UpdateIcon color='primary' onClick={() => setCurrentId(product._id)} />
+                            </IconButton>
+                            <IconButton >
+                                <DeleteIcon color='primary' onClick={() => dispatch(deleteProduct(product._id))} />
+                            </IconButton>
                         </div>
                     </Grid>
                 ))}
 
-            </Grid>
+            </Grid >
         </>
     )
 }

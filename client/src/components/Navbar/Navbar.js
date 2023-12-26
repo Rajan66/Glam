@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
-import { Button } from '@mui/material'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 
 import './styles.css'
+import { FaBars, FaTimes } from 'react-icons/fa'
+import { Button } from '@mui/material'
+
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
 
@@ -58,14 +60,16 @@ const Navbar = () => {
             <a href='#'>About</a>
           </li>
           <li className='nav-item'>
-            <a href='#'>Contact</a>
+            <a href='/admin'>Admin</a>
           </li>
-          <Button className='nav-item' onClick={handleLogout} variant='contained'>
-            Logout
-          </Button>
+          <li>
+              <Button className='nav-item' onClick={handleLogout} variant='text' color='secondary'>
+                Logout
+              </Button>
+          </li>
         </ul>
       </nav>
-    </div>
+    </div >
   )
 }
 
