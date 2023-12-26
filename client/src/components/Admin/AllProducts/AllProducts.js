@@ -21,10 +21,10 @@ const AllProducts = () => {
                             <p>{product.title}</p>
                             <p><span>{product.tags}</span></p>
                             <p>{product.price}</p>
-                            <Button onClick={() => dispatch(updateProduct())} startIcon={<UpdateIcon />}>
+                            <Button onClick={() => dispatch(updateProduct(product._id, ...product))} startIcon={<UpdateIcon />}>
 
                             </Button>
-                            <Button onClick={() => dispatch(deleteProduct())} startIcon={<DeleteIcon />}>
+                            <Button onClick={() => dispatch(deleteProduct(product._id))} startIcon={<DeleteIcon />}>
 
                             </Button>
                         </div>
