@@ -42,7 +42,7 @@
 }
 
 .ham{
-    display: block;
+    display: none;
 }
 /*
 
@@ -73,7 +73,7 @@
     .header .navbar {
         max-width: 100%;
     }
-    .hamburger {
+    .ham {
         display: block;
     }
     .nav-menu {
