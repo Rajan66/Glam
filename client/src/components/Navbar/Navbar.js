@@ -59,9 +59,9 @@ const Navbar = () => {
           <li className='nav-item'>
             <a href='/'>About</a>
           </li>
-          <li className='nav-item'>
+          {/* <li className='nav-item'>
             <a href='/admin'>Admin</a>
-          </li>
+          </li> */}
           <li>
             <Button className='nav-item' onClick={handleLogout} variant='text' >
               Logout

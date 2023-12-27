@@ -34,7 +34,6 @@ API.interceptors.request.use(async (req) => {
     console.log(token)
     if (token) {
         req.headers.Authorization = `Bearer ${token}`;
-        console.log(token)
     }
     return req;
 }, (error) => {
