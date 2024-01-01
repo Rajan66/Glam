@@ -12,7 +12,6 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route path="/" Component={Home} />
         <Route path="/admin" Component={Admin} />

@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import Products from '../Products/Products';
 import Hero from '../Hero/Hero';
 import Card from '../Card';
-import {Grid} from '@mui/material'
+import { Grid } from '@mui/material'
+import Navbar from '../Navbar/Navbar'
 
 import { getProducts } from '../../actions/products';
 
@@ -19,9 +20,10 @@ const Home = () => {
 
   return (
     <div>
+      <Navbar />
       <Hero />
       <Card products={products} />
-  
+
       <h1></h1>
       <Products setCurrentId={setCurrentId} />
     </div>

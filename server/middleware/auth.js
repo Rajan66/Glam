@@ -3,7 +3,7 @@ const User = require('../models/user')
 
 class Middleware {
     async decodeToken(req, res, next) {
-        const token = req.headers.authorization.split(' ')[1]
+        const token = await req.headers.authorization.split(' ')[1]
         try {
             const decodeValue = await admin.auth().verifyIdToken(token)
             if (decodeValue) {
