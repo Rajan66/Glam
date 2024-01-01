@@ -50,6 +50,7 @@ const Auth = () => {
   return (
     <div>
       <Button onClick={handleGoogeLogin} style={{ marginTop: "150px" }}>
+        {/* SignUP form here */}
         Login With Google
       </Button>
     </div>
