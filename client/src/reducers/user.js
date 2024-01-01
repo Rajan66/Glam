@@ -1,12 +1,12 @@
-import { FETCH, CREATE, UPDATEROLE, DELETE, } from "../constants/actionTypes";
+import { FETCH_ALL, CREATE, UPDATEROLE, DELETE, } from "../constants/actionTypes";
 
-export default (user = [], action) => {
+export default (users = [], action) => {
     switch (action.type) {
-        case FETCH:
+        case FETCH_ALL:
             return action.payload
         case CREATE:
-            return [...user, action.payload]
+            return [...users, action.payload]
         default:
-            return user
+            return users
     }
 }

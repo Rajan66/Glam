@@ -1,8 +1,17 @@
-import { FETCH, CREATE, UPDATEROLE, DELETE } from "../constants/actionTypes";
+import { FETCH_ALL, CREATE, UPDATEROLE, DELETE } from "../constants/actionTypes";
 import * as api from '../api'
 
+export const getUsers = () => async (dispatch) => {
+    try {
+        const { data } = await api.fetchUsers()
+        dispatch({ type: FETCH_ALL, payload: data })
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
 export const createUser = (userData) => async (dispatch) => {
-    console.log(userData)
     try {
         const { data } = await api.createUser(userData)
         dispatch({ type: CREATE, payload: data })

@@ -1,9 +1,11 @@
-import { Grid, Button, IconButton } from '@mui/material'
-import DeleteIcon from "@mui/icons-material/Delete"
-import UpdateIcon from "@mui/icons-material/Edit"
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteProduct } from '../../../../actions/products'
+
+import { Grid, IconButton } from '@mui/material'
+import DeleteIcon from "@mui/icons-material/Delete"
+import UpdateIcon from "@mui/icons-material/Edit"
+
 
 const AllProducts = ({ setCurrentId }) => {
     const dispatch = useDispatch()
@@ -12,7 +14,6 @@ const AllProducts = ({ setCurrentId }) => {
         <>
             <Grid>
                 {products.map((product) => (
-
                     <Grid key={product._id} item>
                         <div style={{ display: "flex", padding: "20px" }}>
                             {/* <img src={dummyImg} width="100%" height="100%" /> */}

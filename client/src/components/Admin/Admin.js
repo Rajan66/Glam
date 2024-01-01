@@ -33,7 +33,7 @@ const Admin = () => {
                 return <Orders />
 
             default:
-                return <User />;
+                return <AdminProducts currentId={currentId} setCurrentId={setCurrentId} />
         }
     };
 

@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants/actionTypes";
+import { FETCH_ALL, FETCH, CREATE, UPDATE, DELETE } from "../constants/actionTypes";
 import * as api from '../api'
 
 export const getProducts = () => async (dispatch) => {
@@ -14,7 +14,7 @@ export const getProducts = () => async (dispatch) => {
 export const getProduct = (id) => async (dispatch) => {
     try {
         const { data } = await api.fetchProducts(id)
-        dispatch({ type: FETCH_ALL, payload: data })
+        dispatch({ type: FETCH, payload: data })
 
     } catch (error) {
         console.log(error.message)
