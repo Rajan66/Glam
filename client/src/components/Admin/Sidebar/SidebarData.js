@@ -6,23 +6,27 @@ import OrderIcon from '@mui/icons-material/LocalShipping'
 
 export const SidebarData = [
     {
+        id: 1,
         title: "Home",
         icon: <HomeIcon />,
-        link: "/"
+        linkTo: "home"
     },
     {
+        id: 2,
         title: "Users",
         icon: <UserIcon />,
-        link: "/"
+        linkTo: "user"
     },
     {
+        id: 3,
         title: "Products",
         icon: <ProductIcon />,
-        link: "/"
+        linkTo: "products"
     },
     {
+        id: 4,
         title: "Orders",
         icon: <OrderIcon />,
-        link: "/"
+        linkTo: "orders"
     },
 ]
