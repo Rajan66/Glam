@@ -3,6 +3,7 @@ import { Button } from '@mui/base'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import { useNavigate } from 'react-router-dom'
+import { createUser } from '../../actions/user'
 
 const Auth = () => {
   const [auth, setAuth] = useState(false || window.localStorage.getItem('auth') === true)
@@ -14,13 +15,24 @@ const Auth = () => {
       if (userCred) {
         setAuth(true)
         window.localStorage.setItem('auth', true)
-
         userCred.getIdToken()
           .then((token) => setToken(token))
         console.log(token)
+        handleFirebaseSignUp()
       }
     })
   }, [])
+
+  const handleFirebaseSignUp = () => {
+    const currentUser = firebase.auth().currentUser;
+    const firebaseCredentials = {
+      email: currentUser.email,
+      uid: currentUser.uid,
+      name: currentUser.displayName,
+    }
+    console.log(firebaseCredentials)
+    createUser(firebaseCredentials)
+  }
 
   const handleGoogeLogin = () => {
     firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
@@ -28,6 +40,7 @@ const Auth = () => {
         if (userCred) {
           setAuth(true)
           window.localStorage.setItem('auth', true)
+          handleFirebaseSignUp()
           navigate('/')
         }
       })
@@ -36,7 +49,7 @@ const Auth = () => {
 
   return (
     <div>
-      <Button onClick={handleGoogeLogin} style={{marginTop:"150px"}}>
+      <Button onClick={handleGoogeLogin} style={{ marginTop: "150px" }}>
         Login With Google
       </Button>
     </div>
