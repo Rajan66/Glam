@@ -11,6 +11,16 @@ export const getProducts = () => async (dispatch) => {
     }
 }
 
+export const getProduct = (id) => async (dispatch) => {
+    try {
+        const { data } = await api.fetchProducts(id)
+        dispatch({ type: FETCH_ALL, payload: data })
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
 export const createProduct = (product) => async (dispatch) => {
     try {
         const { data } = await api.createProduct(product)
