@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import AllProducts from './AllProducts/AllProducts';
-import Form from './Form/Form';
-import { getProducts } from '../../actions/products';
+import { useNavigate } from 'react-router-dom';
+
 import Sidebar from './Sidebar/Sidebar';
-import "./Sidebar/Sidebar.css"
-import { SidebarData } from './Sidebar/SidebarData';
 import Orders from './Orders/Orders';
 import User from './User/User';
-import { useNavigate } from 'react-router-dom';
+import AdminProducts from './AdminProducts/AdminProducts';
+
+import { SidebarData } from './Sidebar/SidebarData';
+
+import "./Sidebar/Sidebar.css"
 
 const Admin = () => {
     const [currentId, setCurrentId] = useState(0)
@@ -19,15 +20,18 @@ const Admin = () => {
 
     const renderComponent = () => {
         switch (currentComponent) {
-            case 'user':
-                // return <Form currentId={currentId} setCurrentId={setCurrentId} />;
-                return <User />
-            case 'orders':
-                // return <AllProducts setCurrentId={setCurrentId} />;
-                return <Orders />
             case 'home':
                 navigate('/')
-            // Add other cases for different components
+
+            case 'user':
+                return <User />
+
+            case 'products':
+                return <AdminProducts currentId={currentId} setCurrentId={setCurrentId} />
+
+            case 'orders':
+                return <Orders />
+
             default:
                 return <User />;
         }
@@ -37,15 +41,10 @@ const Admin = () => {
         setCurrentComponent(linkTo);
     };
 
-    useEffect(() => {
-
-        dispatch(getProducts())
-    }, [])
-
     return (
         <div className='App'>
 
-            <Sidebar SidebarData={SidebarData} handleSidebarClick={handleSidebarClick} />
+            <Sidebar SidebarData={SidebarData} handleSidebarClick={handleSidebarClick} currentComponent={currentComponent} />
             {renderComponent()}
         </div >
     )

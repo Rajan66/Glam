@@ -3,7 +3,7 @@ import DeleteIcon from "@mui/icons-material/Delete"
 import UpdateIcon from "@mui/icons-material/Edit"
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteProduct } from '../../../actions/products'
+import { deleteProduct } from '../../../../actions/products'
 
 const AllProducts = ({ setCurrentId }) => {
     const dispatch = useDispatch()

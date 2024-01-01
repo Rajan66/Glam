@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Sidebar.css"
 
-const Sidebar = ({ SidebarData, handleSidebarClick }) => {
+const Sidebar = ({ SidebarData, handleSidebarClick, currentComponent }) => {
     return (
         <div className='Sidebar'>
             <ul className='SidebarList'>
@@ -9,7 +9,7 @@ const Sidebar = ({ SidebarData, handleSidebarClick }) => {
                     return (
                         <li
                             className='row'
-                            id={window.location.pathname === val.linkTo ? "active" : ""}
+                            id={currentComponent === val.linkTo ? "active" : ""}
                             onClick={() => {
                                 handleSidebarClick(val.linkTo)
                             }}
