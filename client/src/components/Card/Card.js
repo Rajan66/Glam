@@ -1,7 +1,7 @@
 import React from 'react'
 import './Card.css'
 import { Grid } from '@mui/material'
-import dummyImg from '../images/bg.jpg'
+import dummyImg from '../../images/bg.jpg'
 
 const Card = ({ products }) => {
     // store 5-8 random products in a array and display in the featured products
