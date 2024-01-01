@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Products from '../Products/Products';
 import Hero from '../Hero/Hero';
-import Card from '../Card';
-import { Grid } from '@mui/material'
+import Card from '../Card/Card';
 import Navbar from '../Navbar/Navbar'
 
 import { getProducts } from '../../actions/products';
@@ -23,7 +22,6 @@ const Home = () => {
       <Navbar />
       <Hero />
       <Card products={products} />
-
       <h1></h1>
       <Products setCurrentId={setCurrentId} />
     </div>
