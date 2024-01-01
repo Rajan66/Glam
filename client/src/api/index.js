@@ -31,7 +31,6 @@ const getUserToken = async () => {
 // Interceptor to set token in Axios headers before each request
 API.interceptors.request.use(async (req) => {
     const token = await getUserToken();
-    console.log(token)
     if (token) {
         req.headers.Authorization = `Bearer ${token}`;
     }

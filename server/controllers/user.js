@@ -8,7 +8,7 @@ const createUser = async (req, res) => {
     if (userExists) {
         console.log({ message: 'User already exists' })
         res.json({ message: 'User already exists' })
-        return 
+        return
     }
     const newUser = new User(user)
     try {

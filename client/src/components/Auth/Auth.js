@@ -4,11 +4,13 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import { useNavigate } from 'react-router-dom'
 import { createUser } from '../../actions/user'
+import { useDispatch } from 'react-redux'
 
 const Auth = () => {
   const [auth, setAuth] = useState(false || window.localStorage.getItem('auth') === true)
   const [token, setToken] = useState('')
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((userCred) => {
@@ -17,8 +19,7 @@ const Auth = () => {
         window.localStorage.setItem('auth', true)
         userCred.getIdToken()
           .then((token) => setToken(token))
-        console.log(token)
-        handleFirebaseSignUp()
+        // handleFirebaseSignUp()
       }
     })
   }, [])
@@ -30,8 +31,7 @@ const Auth = () => {
       uid: currentUser.uid,
       name: currentUser.displayName,
     }
-    console.log(firebaseCredentials)
-    createUser(firebaseCredentials)
+    dispatch(createUser(firebaseCredentials))
   }
 
   const handleGoogeLogin = () => {

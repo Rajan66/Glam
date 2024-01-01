@@ -2,6 +2,7 @@ import { FETCH, CREATE, UPDATEROLE, DELETE } from "../constants/actionTypes";
 import * as api from '../api'
 
 export const createUser = (userData) => async (dispatch) => {
+    console.log(userData)
     try {
         const { data } = await api.createUser(userData)
         dispatch({ type: CREATE, payload: data })
