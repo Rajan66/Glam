@@ -8,10 +8,14 @@ import { Button } from '@mui/material'
 
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
 
   const navigate = useNavigate()
+
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartSize = cartItems.length;
 
   //setting mobile nav
   const [click, setClick] = useState(false)
@@ -59,9 +63,9 @@ const Navbar = () => {
           <li className='nav-item'>
             <a href='/'>About</a>
           </li>
-          {/* <li className='nav-item'>
-            <a href='/admin'>Admin</a>
-          </li> */}
+          <li className='nav-item'>
+            <a href=''>Cart {cartSize}</a>
+          </li>
           <li>
             <Button className='nav-item' onClick={handleLogout} variant='text' >
               Logout

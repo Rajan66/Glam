@@ -4,3 +4,5 @@ export const CREATE = 'CREATE'
 export const UPDATE = 'UPDATE'
 export const DELETE = 'DELETE'
 export const UPDATEROLE = 'UPDATEROLE'
+
+export const ADD_TO_CART = 'ADD_TO_CART';
