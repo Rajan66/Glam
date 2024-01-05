@@ -33,6 +33,7 @@ const AllProducts = ({ setCurrentId }) => {
 
             </Grid > */}
 
+<br></br>
 <div className='container'>
             <table>
                 <thead>
@@ -44,7 +45,9 @@ const AllProducts = ({ setCurrentId }) => {
                 </tr>
                 </thead>
                 <tbody>
-                    <tr className='tb'>
+                    {/* { */}
+                        {/* List.map(item =>{ */}
+                            <tr className='tb'>
                         <td>
                             <div>
                                 <img src='' alt=''/>
@@ -56,8 +59,61 @@ const AllProducts = ({ setCurrentId }) => {
                         </td>
                         <td>Marker pen</td>
                         <td>Marker pen</td>
-                        <td>1000</td>
+                        <td>2000</td>
+                        <td>
+                        <IconButton color='primary' >
+                        <UpdateIcon />
+                        </IconButton>
+                        <IconButton color='primary'  >
+                        <DeleteIcon />
+                        </IconButton></td>
                     </tr>
+                    <tr className='tb'>
+                    <td>
+                            <div>
+                                <img src='' alt=''/>
+                                <div>
+                                    <span>Blush</span>
+                                    <span>Dil blusher blusher hogaya</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Rose</td>
+                        <td>Rose</td>
+                        <td>1000</td>
+                        <td>
+                        <IconButton color='primary' >
+                        <UpdateIcon />
+                        </IconButton>
+                        <IconButton color='primary'  >
+                        <DeleteIcon />
+                        </IconButton></td>
+                    </tr>
+                    <tr className='tb'>
+                    <td>
+                            <div>
+                                <img src='' alt=''/>
+                                <div>
+                                    <span>Primer</span>
+                                    <span>Not to prime is a crime</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Primer</td>
+                        <td>Primer</td>
+                        <td>1000</td>
+                        <td>
+                        <IconButton color='primary' >
+                        <UpdateIcon />
+                        </IconButton>
+                        <IconButton color='primary'  >
+                        <DeleteIcon />
+                        </IconButton></td>
+                    </tr>
+                    
+                        {/* }) */}
+                    {/* } */}
+                    
                 </tbody>
             </table>
         </div>
