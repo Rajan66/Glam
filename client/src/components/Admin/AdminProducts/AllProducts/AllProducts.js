@@ -43,6 +43,22 @@ const AllProducts = ({ setCurrentId }) => {
                     <th>Price</th>
                 </tr>
                 </thead>
+                <tbody>
+                    <tr className='tb'>
+                        <td>
+                            <div>
+                                <img src='' alt=''/>
+                                <div>
+                                    <span>Liner</span>
+                                    <span>Marker pen what this</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Marker pen</td>
+                        <td>Marker pen</td>
+                        <td>1000</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         </>

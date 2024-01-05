@@ -1,6 +1,5 @@
 div#root, .tb{
     width: 100%;
-    min-height: 100vh;
 }
 
 .tb{
@@ -31,6 +30,36 @@ thead tr th{
     padding: 19px 10px;
 }
 
+thead tr th:nth-child(2){
+    min-width: 200px;
+}
+
+tr td{
+    padding: 10px;
+}
+
+tr td div span{
+    display: block;
+}
+
+tr img{
+    width: 50px;
+    margin: 0 3px;
+    border-radius: 3px;
+}
+
+tr td > div{
+    display: flex;
+    align-items: center;
+    margin: 0 3px;
+}
+
 table tr{
     white-space: nowrap;
+    transition: .23s ease-in-out;
+}
+
+table tbody tr:hover{
+    background: rgb(237, 237, 237);
+    color: rgb(60, 60, 60);
 }
