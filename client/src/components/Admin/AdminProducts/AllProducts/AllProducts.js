@@ -1,4 +1,5 @@
 import React from 'react'
+import './AllProducts.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteProduct } from '../../../../actions/products'
 
@@ -12,12 +13,12 @@ const AllProducts = ({ setCurrentId }) => {
     const products = useSelector((state) => state.products)
     return (
         <>
-            <Grid>
+            {/* <Grid>
                 {products.map((product) => (
                     <Grid key={product._id} item>
-                        <div style={{ display: "flex", padding: "20px" }}>
+                        <div style={{ display: "flex", padding: "20px" }}> */}
                             {/* <img src={dummyImg} width="100%" height="100%" /> */}
-                            <p>{product.title}</p>
+                            {/* <p>{product.title}</p>
                             <p><span>{product.tags}</span></p>
                             <p>{product.price}</p>
                             <IconButton color='primary' onClick={() => setCurrentId(product._id)} >
@@ -30,7 +31,20 @@ const AllProducts = ({ setCurrentId }) => {
                     </Grid>
                 ))}
 
-            </Grid >
+            </Grid > */}
+
+<div className='container'>
+            <table>
+                <thead>
+                <tr className='tb'>
+                    <th>Product name</th>
+                    <th>Title</th>
+                    <th>Product name</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
         </>
     )
 }

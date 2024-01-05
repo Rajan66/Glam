@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { TextField, Button, Typography, Paper } from '@mui/material';
 import { createProduct, updateProduct } from '../../../../actions/products';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 const Form = ({ currentId, setCurrentId }) => {
     const dispatch = useDispatch()
@@ -33,19 +34,21 @@ const Form = ({ currentId, setCurrentId }) => {
             price: "",
         });
     }
-    return (
-        <Paper elevation={6}>
-            <form autoComplete="off" noValidate onSubmit={handleSubmit}>
-                <Typography variant="h6">Creating a Product</Typography>
-                <TextField style={{ margin: 10 }} name="title" variant="outlined" label="Title" fullWidth value={productData.title} onChange={(e) => setProductData({ ...productData, title: e.target.value })} />
-                <TextField style={{ margin: 10 }} name="description" variant="outlined" label="Description" fullWidth multiline rows={4} value={productData.description} onChange={(e) => setProductData({ ...productData, description: e.target.value })} />
-                <TextField style={{ margin: 10 }} name="category" variant="outlined" label="Category" fullWidth value={productData.category} onChange={(e) => setProductData({ ...productData, category: e.target.value.split(',') })} />
-                <TextField style={{ margin: 10 }} name="price" variant="outlined" label="Price" fullWidth value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })} />
-                <Button style={{ marginBottom: 10 }} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-                <Button variant="contained" color="warning" size="medium" onClick={clear} fullWidth>Clear</Button>
-            </form>
-        </Paper>
-    )
+    // return (
+    //     <Paper elevation={6}>
+    //         <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+    //             <Typography variant="h6">Creating a Product</Typography>
+    //             <TextField style={{ margin: 10 }} name="title" variant="outlined" label="Title" fullWidth value={productData.title} onChange={(e) => setProductData({ ...productData, title: e.target.value })} />
+    //             <TextField style={{ margin: 10 }} name="description" variant="outlined" label="Description" fullWidth multiline rows={4} value={productData.description} onChange={(e) => setProductData({ ...productData, description: e.target.value })} />
+    //             <TextField style={{ margin: 10 }} name="category" variant="outlined" label="Category" fullWidth value={productData.category} onChange={(e) => setProductData({ ...productData, category: e.target.value.split(',') })} />
+    //             <TextField style={{ margin: 10 }} name="price" variant="outlined" label="Price" fullWidth value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })} />
+    //             <Button style={{ marginBottom: 10 }} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
+    //             <Button variant="contained" color="warning" size="medium" onClick={clear} fullWidth>Clear</Button>
+    //         </form>
+    //     </Paper>
+    // )
+    
+  
 }
 
 export default Form

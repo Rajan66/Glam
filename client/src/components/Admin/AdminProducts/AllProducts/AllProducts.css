@@ -1,0 +1,36 @@
+div#root, .tb{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.tb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    max-width: 1000vh;
+    overflow-x: auto;
+    border-radius: 4px;
+}
+
+table{
+    user-select: none;
+    width: 100%;
+    font-size: 16px;
+    border-collapse: collapse;
+}
+
+thead{
+    background-color: grey;
+    color: white;
+}
+
+thead tr th{
+    padding: 19px 10px;
+}
+
+table tr{
+    white-space: nowrap;
+}

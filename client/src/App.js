@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import Home from './components/Home/Home';
 import Admin from './components/Admin/Admin'
 import Auth from './components/Auth/Auth'
-
+import Table from './components/Admin/AdminProducts/Form/Form.js';
 import './App.css';
+
 
 
 function App() {
@@ -18,5 +19,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
