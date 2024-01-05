@@ -29,7 +29,6 @@ const AllProducts = ({ setCurrentId }) => {
                         </div>
                     </Grid>
                 ))}
-
             </Grid >
         </>
     )
