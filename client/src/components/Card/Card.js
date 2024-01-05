@@ -14,7 +14,7 @@ const Card = ({ products }) => {
                     {products.map((product) => (
                         <Grid key={product._id} item>
                             <div className='card'>
-                                <img src={dummyImg} width="100%" height="100%" />
+                                <img src={product.productImage} width="100%" height="100%" />
                                 <p>{product.title}</p>
                                 <p><span>{product.tags}</span></p>
                                 <p>{product.price}</p>
