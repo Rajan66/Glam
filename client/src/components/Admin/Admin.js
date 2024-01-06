@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
 
 import Sidebar from './Sidebar/Sidebar';
 import Orders from './Orders/Orders';
@@ -14,32 +12,12 @@ import { SidebarData } from './Sidebar/SidebarData';
 import "./Sidebar/Sidebar.css"
 
 const Admin = () => {
-    // const [currentFirebaseUser, setCurrentFirebaseUser] = useState(null);
     const [currentId, setCurrentId] = useState(0)
     const isAdmin = window.localStorage.getItem('isAdmin')
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
-    // const users = useSelector((state) => state.user)
-    // const foundUser = users.find((user) => user?.uid === currentFirebaseUser?.uid)
-
-    // if (foundUser && foundUser.role === 'moderator') {
-    //     setIsAdmin(true);
-    // }
-
     const [currentComponent, setCurrentComponent] = useState('form'); // Default to 'form' or initial component
-
-    // useEffect(() => {
-    //     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-    //         if (user) {
-    //             setCurrentFirebaseUser(user);
-    //         } else {
-    //             setCurrentFirebaseUser(null);
-    //         }
-    //     })
-    //     return () => unsubscribe();
-    // }, []);
-
 
     const renderComponent = () => {
         switch (currentComponent) {

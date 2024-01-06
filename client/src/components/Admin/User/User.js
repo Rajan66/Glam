@@ -48,13 +48,10 @@ const User = () => {
                           <DeleteIcon />
                         </IconButton>
                       </div>
-
                     </div>
                   </Grid>
                 </td>
-
               </tr>
-
             ))}
         </tbody>
 
