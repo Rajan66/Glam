@@ -48,12 +48,8 @@ const AllProducts = ({ setCurrentId }) => {
                     <tbody>
                         {products.map((product) => (
                             <tr className='tb'>
-                                <td>
-                                    <div><img src={product.productImage} /></div>
-                                </td>
-                                <td>
-                                    <div><span>{product.title}</span></div>
-                                </td>
+                                <td><div><img src={product.productImage} /></div></td>
+                                <td><div><span>{product.title}</span></div></td>
                                 <td>{product.title}</td>
                                 <td>{product.category}</td>
                                 <td>2000</td>

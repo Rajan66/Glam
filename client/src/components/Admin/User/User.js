@@ -23,38 +23,41 @@ const User = () => {
           <tr>
             <th>Name</th>
             <th>Email</th>
+            <th>Role</th>
           </tr>
         </thead>
         <tbody>
-        {
-        users.map((user) => (
-          <tr>
-            <td>
-            <Grid key={user._id} item >
-          <div style={{ display: "flex", padding: "20px" }}>
-            <p>{user.name}</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <p>{user.email}</p>
-            <div className='icon'>
-            <IconButton color='primary' >
-              <UpdateIcon />
-            </IconButton>
-            <IconButton color='primary'  >
-              <DeleteIcon />
-            </IconButton>
-            </div>
-            
-          </div>
-        </Grid>  
-            </td>
-            
-          </tr>
-        
-      ))}
+          {
+            users.map((user) => (
+              <tr>
+                <td>
+                  <Grid key={user._id} item >
+                    <div style={{ display: "flex", padding: "20px" }}>
+                      <p>{user.name}</p>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <p>{user.email}</p>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <p>{user.role}</p>
+                      <div className='icon'>
+                        <IconButton color='primary' >
+                          <UpdateIcon />
+                        </IconButton>
+                        <IconButton color='primary'  >
+                          <DeleteIcon />
+                        </IconButton>
+                      </div>
+
+                    </div>
+                  </Grid>
+                </td>
+
+              </tr>
+
+            ))}
         </tbody>
-      
+
       </table>
-      
+
     </div>
   )
 }
