@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import Home from './components/Home/Home';
 import Admin from './components/Admin/Admin'
 import Auth from './components/Auth/Auth'
-import Table from './components/Admin/AdminProducts/Form/Form.js';
+import ProductDetails from './components/ProductDeatils/ProductDetails.js';
 import './App.css';
+
 
 
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" Component={Home} />
         <Route path="/admin" Component={Admin} />
         <Route path="/auth" Component={Auth} />
+        <Route path="/product/:id" Component={ProductDetails} />
       </Routes>
     </Router>
   );
