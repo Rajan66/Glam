@@ -1,0 +1,16 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 70%;
+}
+
+.productTable {
+    width: 100%;
+    height: auto;
+}
+
+.form {
+    width: 30%;
+    height: 30%;
+}

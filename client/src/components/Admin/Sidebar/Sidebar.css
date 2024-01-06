@@ -10,7 +10,7 @@ body {
 }
 
 .Sidebar {
-    height: 150vh;
+    /* height: 150vh; */
     width: 300px;
     background-color: #202020;
 }

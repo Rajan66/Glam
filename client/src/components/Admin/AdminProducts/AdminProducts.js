@@ -4,6 +4,8 @@ import Form from './Form/Form'
 import { getProducts } from '../../../actions/products'
 import { useDispatch } from 'react-redux'
 
+import './AdminProducts.css'
+
 const Products = ({ currentId, setCurrentId }) => {
     const dispatch = useDispatch()
     useEffect(() => {
@@ -11,9 +13,13 @@ const Products = ({ currentId, setCurrentId }) => {
     }, [])
 
     return (
-        <div>
-            <Form currentId={currentId} setCurrentId={setCurrentId} />
-            <AllProducts setCurrentId={setCurrentId} />
+        <div className='main'>
+            <div className='productTable'>
+                <AllProducts setCurrentId={setCurrentId} />
+            </div>
+            <div className='form'>
+                <Form currentId={currentId} setCurrentId={setCurrentId} />
+            </div>
         </div>
     )
 }
