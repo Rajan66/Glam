@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
+import { signOut, setPersistence, browserSessionPersistence } from 'firebase/compat/auth';
+import { getAuth } from 'firebase/compat/auth';
 
 import './styles.css'
 import { FaBars, FaTimes } from 'react-icons/fa'
@@ -11,7 +13,6 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 const Navbar = () => {
-
   const navigate = useNavigate()
 
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -36,14 +37,26 @@ const Navbar = () => {
   //close menu on click
   const closeMenu = () => setClick(false)
 
+  // const handleLogout = () => {
+  //   firebase.auth().signOut()
+  //     .then(() => {
+  //       window.localStorage.setItem('auth', 'false')
+  //       firebase.auth().setPersistence(firebase.auth().Auth.Persistence.NONE);
+  //       navigate('/auth') // navigate to home instead of auth later
+  //     })
+  //     .catch((error) => console.log(error.message))
+  // }
   const handleLogout = () => {
-    firebase.auth().signOut()
+    const auth = firebase.auth();
+
+    auth.signOut()
       .then(() => {
         window.localStorage.setItem('auth', 'false')
-        navigate('/auth') // navigate to home instead of auth later
+        window.localStorage.setItem('isAdmin', 'false')
+        navigate('/auth');
       })
-      .catch((error) => console.log(error.message))
-  }
+      .catch((error) => console.error(error.message));
+  };
 
   return (
     <div className={color ? 'header header-bg' : 'header'}>

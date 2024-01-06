@@ -14,27 +14,31 @@ import { SidebarData } from './Sidebar/SidebarData';
 import "./Sidebar/Sidebar.css"
 
 const Admin = () => {
-    const [currentFirebaseUser, setCurrentFirebaseUser] = useState(null);
+    // const [currentFirebaseUser, setCurrentFirebaseUser] = useState(null);
     const [currentId, setCurrentId] = useState(0)
+    const isAdmin = window.localStorage.getItem('isAdmin')
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
-    const users = useSelector((state) => state.user)
-    const foundUser = users.find((user) => user?.uid === currentFirebaseUser?.uid)
-    const isAdmin = foundUser.role === 'moderator' ? true : false
+    // const users = useSelector((state) => state.user)
+    // const foundUser = users.find((user) => user?.uid === currentFirebaseUser?.uid)
+
+    // if (foundUser && foundUser.role === 'moderator') {
+    //     setIsAdmin(true);
+    // }
 
     const [currentComponent, setCurrentComponent] = useState('form'); // Default to 'form' or initial component
 
-    useEffect(() => {
-        const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                setCurrentFirebaseUser(user);
-            } else {
-                setCurrentFirebaseUser(null);
-            }
-        })
-        return () => unsubscribe();
-    }, []);
+    // useEffect(() => {
+    //     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    //         if (user) {
+    //             setCurrentFirebaseUser(user);
+    //         } else {
+    //             setCurrentFirebaseUser(null);
+    //         }
+    //     })
+    //     return () => unsubscribe();
+    // }, []);
 
 
     const renderComponent = () => {

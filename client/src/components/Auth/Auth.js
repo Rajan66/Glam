@@ -3,26 +3,43 @@ import { Button } from '@mui/base'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import { useNavigate } from 'react-router-dom'
-import { createUser } from '../../actions/user'
-import { useDispatch } from 'react-redux'
+import { createUser, getUsers } from '../../actions/user'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Auth = () => {
-  const [auth, setAuth] = useState(false || window.localStorage.getItem('auth') === true)
-  const [token, setToken] = useState('')
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
+
+  const [isAdmin, setIsAdmin] = useState(false || window.localStorage.getItem('isAdmin') === true)
+  const [auth, setAuth] = useState(false || window.localStorage.getItem('auth') === true)
+  const [token, setToken] = useState('')
+  const users = useSelector((state) => state.user)
+
   useEffect(() => {
+    dispatch(getUsers())
+
     firebase.auth().onAuthStateChanged((userCred) => {
       if (userCred) {
         setAuth(true)
         window.localStorage.setItem('auth', true)
+        console.log(userCred?.uid)
         userCred.getIdToken()
           .then((token) => setToken(token))
-        // handleFirebaseSignUp()
+        checkModerator(userCred)
       }
     })
   }, [])
+
+  const checkModerator = (userCred) => {
+    const foundUser = users.find((user) => user?.uid === userCred?.uid)
+    console.log(users)
+    console.log(foundUser?.uid)
+    if (foundUser && foundUser.role === 'moderator') {
+      setIsAdmin(true)
+      window.localStorage.setItem('isAdmin', true)
+    }
+  }
 
   const handleFirebaseSignUp = () => {
     const currentUser = firebase.auth().currentUser;
@@ -34,12 +51,13 @@ const Auth = () => {
     dispatch(createUser(firebaseCredentials))
   }
 
-  const handleGoogeLogin = () => {
+  const handleGoogleLogin = () => {
     firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((userCred) => {
         if (userCred) {
           setAuth(true)
           window.localStorage.setItem('auth', true)
+          checkModerator(userCred)
           handleFirebaseSignUp()
           navigate('/')
         }
@@ -49,7 +67,7 @@ const Auth = () => {
 
   return (
     <div>
-      <Button onClick={handleGoogeLogin} style={{ marginTop: "150px" }}>
+      <Button onClick={handleGoogleLogin} style={{ marginTop: "150px" }}>
         {/* SignUP form here */}
         Login With Google
       </Button>
