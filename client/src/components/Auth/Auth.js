@@ -27,13 +27,11 @@ const Auth = () => {
         checkModerator(userCred)
       }
     })
-  }, [dispatch,auth])
+  }, [dispatch, auth])
 
-  const checkModerator = async (userCred) => {
-    dispatch(getUsers())
-    const foundUser = await users.find((user) => user?.uid === userCred?.uid)
-    console.log(users)
-    console.log(foundUser)
+  const checkModerator = (userCred) => {
+
+    const foundUser = users.find((user) => user?.uid === userCred?.uid)
     if (foundUser && foundUser.role === 'moderator') {
       setIsAdmin(true)
       window.localStorage.setItem('isAdmin', true)

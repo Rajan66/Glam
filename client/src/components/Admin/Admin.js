@@ -13,7 +13,8 @@ import "./Sidebar/Sidebar.css"
 
 const Admin = () => {
     const [currentId, setCurrentId] = useState(0)
-    const isAdmin = window.localStorage.getItem('isAdmin')
+    let isAdmin = JSON.parse(window.localStorage.getItem('isAdmin'));
+    console.log(isAdmin)
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
@@ -45,14 +46,14 @@ const Admin = () => {
     return (
         <>
             {isAdmin ? (
-                <div>
-                    Page not found
-                </div>
-            ) : (
                 <div className='App'>
                     <Sidebar SidebarData={SidebarData} handleSidebarClick={handleSidebarClick} currentComponent={currentComponent} />
                     {renderComponent()}
                 </div >
+            ) : (
+                <div>
+                    Page not found
+                </div>
             )}
         </>
 
