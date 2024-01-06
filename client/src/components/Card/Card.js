@@ -1,11 +1,10 @@
 import React from 'react'
 import './Card.css'
-import { Grid, IconButton } from '@mui/material'
+import { Button, Grid, IconButton } from '@mui/material'
 import Cart from '@mui/icons-material/ShoppingBag'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../actions/cart'
 import { Link, useNavigate } from 'react-router-dom'
-import ProductDetails from '../ProductDeatils/ProductDetails'
 
 const Card = ({ products }) => {
     // store 5-8 random products in a array and display in the featured products
@@ -37,9 +36,11 @@ const Card = ({ products }) => {
                             </div>
                         </Grid>
                     ))}
+                    <Button onClick={()=>navigate(`/products`)}>
+                        View All
+                    </Button>
                 </div>
             </div>
-
         </div>
     )
 

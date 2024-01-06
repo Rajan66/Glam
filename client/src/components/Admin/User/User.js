@@ -33,6 +33,8 @@ const User = () => {
                 <td>
                   <Grid key={user._id} item >
                     <div style={{ display: "flex", padding: "20px" }}>
+                      <p>{user.uid}</p>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <p>{user.name}</p>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <p>{user.email}</p>

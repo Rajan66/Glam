@@ -6,6 +6,7 @@ import Card from '../Card/Card';
 import Navbar from '../Navbar/Navbar'
 
 import { getProducts } from '../../actions/products';
+import { Button } from '@mui/material';
 
 
 const Home = () => {
@@ -22,8 +23,10 @@ const Home = () => {
       <Navbar />
       <Hero />
       <Card products={products} />
+    
       <h1></h1>
-      <Products setCurrentId={setCurrentId} />
+      {/* hargaye ham toh line ma aauxa products haru dimag kharab karli*/}
+      {/* <Products setCurrentId={setCurrentId} /> */}
     </div>
   )
 }

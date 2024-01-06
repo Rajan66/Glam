@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import AllProducts from './AllProducts/AllProducts'
+import AllProducts from './ProductsView/ProductsView'
 import Form from './Form/Form'
 import { getProducts } from '../../../actions/products'
 import { useDispatch } from 'react-redux'

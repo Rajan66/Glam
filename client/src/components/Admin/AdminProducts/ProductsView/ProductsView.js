@@ -1,5 +1,5 @@
 import React from 'react'
-import './AllProducts.css'
+import './ProductsView.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteProduct } from '../../../../actions/products'
 
