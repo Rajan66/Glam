@@ -9,7 +9,6 @@ const getOrders = async (req, res) => {
     }
 }
 
-
 const getUserOrders = async (req, res) => {
     const uid = req.body.uid
     console.log(uid)
