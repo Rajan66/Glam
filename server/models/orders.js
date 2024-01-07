@@ -1,13 +1,14 @@
 const mongoose = require('mongoose')
 
+const productSchema = new mongoose.Schema({
+    productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
+    quantity: Number,
+}, { _id: false });
+
 const orderSchema = mongoose.Schema({
-    id: String,
-    uid: { type: String, required: true, unique: true },
-    products: [{
-        productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
-        quantity: Number,
-    }],
-    totalPrice: Number,
+    uid: String,
+    products: [productSchema],
+    totalPrice: { type: Number },
     shippingAddress: {
         name: String,
         address: String,
@@ -20,7 +21,6 @@ const orderSchema = mongoose.Schema({
     },
 })
 
-const Order = mongoose.model('Order', orderSchema)
+const Orders = mongoose.model('Orders', orderSchema)
 
-
-module.exports = Order
+module.exports = Orders

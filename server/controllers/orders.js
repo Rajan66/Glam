@@ -1,6 +1,16 @@
 const Order = require('../models/orders')
 
 const getOrders = async (req, res) => {
+    try {
+        const orders = Order.find()
+        res.status(200).json(orders)
+    } catch (error) {
+        res.status(404).json({ message: error.message })
+    }
+}
+
+
+const getUserOrders = async (req, res) => {
     const uid = req.body.uid
     try {
         const orders = Order.find({ uid: uid })
@@ -22,7 +32,9 @@ const getOrder = async (req, res) => {
 
 const createOrder = async (req, res) => {
     const order = req.body
+    
     const newOrder = new Order({ ...order })
+    console.log(newOrder)
     try {
         await newOrder.save()
         res.status(201).json(newOrder)
