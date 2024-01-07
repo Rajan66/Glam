@@ -2,9 +2,11 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const dotenv = require('dotenv')
-const productRoutes = require('./routes/product.js')
-const userRoutes = require('./routes/user.js')
 const bodyParser = require('body-parser')
+
+const productRoutes = require('./routes/products')
+const userRoutes = require('./routes/users')
+const orderRoutes = require('./routes/orders')
 
 const app = express()
 dotenv.config()
@@ -15,7 +17,8 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use('/products', productRoutes)
-app.use('/user', userRoutes)
+app.use('/users', userRoutes)
+app.use('/orders', orderRoutes)
 
 
 const CONNECTION_URL = process.env.CONNECTION_URL

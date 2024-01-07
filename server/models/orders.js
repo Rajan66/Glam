@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const orderSchema = mongoose.Schema({
     id: String,
+    uid: { type: String, required: true, unique: true },
     products: [{
         productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
         quantity: Number,
@@ -19,7 +20,7 @@ const orderSchema = mongoose.Schema({
     },
 })
 
-const Order = mongoose.Model('Order', orderSchema)
+const Order = mongoose.model('Order', orderSchema)
 
 
 module.exports = Order
