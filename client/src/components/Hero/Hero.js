@@ -5,12 +5,12 @@ const Hero = () => {
     return (
         <div className='hero'>
             <div className='content'>
-              {/* iniharu chahidaina vaye hataedeu la pachu */}
+              {/* iniharu chahidaina vaye hataedeu la  */}
               <p>Call us</p>
               <p>1-800-123</p>
-              <p>Because Makeup</p>
-              <p>Are not always this fine lmao k lekhne :v</p>
-              <button href='#' className='button'>Free products :v</button>
+              <p>Because Makeup </p>
+              <p>Is every woman's need</p>
+              <button href='#' className='button'>Shop Now</button>
             </div>
         </div>
       )

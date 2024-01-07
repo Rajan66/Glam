@@ -56,7 +56,7 @@ const Auth = () => {
           window.localStorage.setItem('auth', true)
           checkModerator(userCred)
           handleFirebaseSignUp()
-          // navigate('/')
+          navigate('/')
         }
       })
       .catch((error) => console.log(error.message))
