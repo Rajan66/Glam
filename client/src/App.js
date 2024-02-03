@@ -22,7 +22,6 @@ function App() {
           <Route path="/products/" Component={AllProducts} />
         </Routes>
       </Router>
-      <Footer />
     </>
   );
 }
