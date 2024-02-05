@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 import { createUser, getUsers } from '../../actions/user'
 import { useDispatch, useSelector } from 'react-redux'
 
+import Login from './Login'
+
 const Auth = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -64,6 +66,7 @@ const Auth = () => {
 
   return (
     <div>
+      <Login handleGoogleLogin={handleGoogleLogin}/>
       <Button onClick={handleGoogleLogin} style={{ marginTop: "150px" }}>
         {/* SignUP form here */}
         Login With Google
