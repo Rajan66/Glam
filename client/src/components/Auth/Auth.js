@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from '@mui/base'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import { useNavigate } from 'react-router-dom'
 import { createUser, getUsers } from '../../actions/user'
 import { useDispatch, useSelector } from 'react-redux'
+import Login from './Login'
 
 import Login from './Login'
 
@@ -35,6 +35,7 @@ const Auth = () => {
 
     const foundUser = users.find((user) => user?.uid === userCred?.uid)
     if (foundUser && foundUser.role === 'moderator') {
+      console.log(foundUser.role)
       setIsAdmin(true)
       window.localStorage.setItem('isAdmin', true)
     }
@@ -67,12 +68,7 @@ const Auth = () => {
   return (
     <div>
       <Login handleGoogleLogin={handleGoogleLogin}/>
-      <Button onClick={handleGoogleLogin} style={{ marginTop: "150px" }}>
-        {/* SignUP form here */}
-        Login With Google
-      </Button>
     </div>
   )
 }
-
 export default Auth
