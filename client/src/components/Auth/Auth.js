@@ -6,6 +6,7 @@ import { createUser, getUsers } from '../../actions/user'
 import { useDispatch, useSelector } from 'react-redux'
 import Login from './Login'
 
+
 const Auth = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
