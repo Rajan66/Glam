@@ -59,6 +59,13 @@ const Navbar = () => {
       })
       .catch((error) => console.error(error.message));
   };
+  const handleLogin = () => {
+      navigate('/auth')
+  };
+
+  const handleCart = ()=>{
+      navigate('/checkout')
+  }
 
   return (
     <div className={color ? 'header header-bg' : 'header'}>
@@ -78,7 +85,7 @@ const Navbar = () => {
           <li className='nav-item'>
             <a href='/'>About</a>
           </li>
-          <li className='nav-item'>
+          <li className='nav-item' onClick={handleCart}>
             <a href=''>Cart {cartSize}</a>
           </li>
           <li>
@@ -87,7 +94,7 @@ const Navbar = () => {
                 Log out
               </Button>
             ) : (
-              <Button className='nav-item' onClick={handleLogout} variant='text' >
+              <Button className='nav-item' onClick={handleLogin} variant='text' >
                 Log in
               </Button>
             )}
