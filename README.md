@@ -1,1 +1,0 @@
-GLAMTIME GLAMTIME lmao
