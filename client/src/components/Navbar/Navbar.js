@@ -9,8 +9,8 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 import { Button } from '@mui/material'
 
 import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import SlideCart from './SlideCart'
 
 
 const Navbar = () => {
@@ -20,6 +20,8 @@ const Navbar = () => {
 
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartSize = cartItems.length;
+
+  const [showCart, setShowCart] = useState(false)
 
   //setting mobile nav
   const [click, setClick] = useState(false)
@@ -69,12 +71,15 @@ const Navbar = () => {
   };
 
   const handleCart = ()=>{
-      navigate('/checkout')
+      setShowCart(true)
   }
 
-
   return (
-    <div className={color ? 'header header-bg' : 'header'}>
+    <>
+      {showCart ? (
+        <SlideCart/>
+        ) : (
+          <div className={color ? 'header header-bg' : 'header'}>
       <nav className='navbar'>
         <a href='#' className='logo'>
           {/* <img rakhne hoki logo ko vanera banako :lumanathink: */}
@@ -91,7 +96,8 @@ const Navbar = () => {
           <li className='nav-item'>
             <a href='/'>About</a>
           </li>
-          <li className='nav-item' onClick={handleCart}>
+          <li className='nav-item'  onClick={handleCart}>
+            
             <a href=''>Cart {cartSize}</a>
           </li>
           <li>
@@ -109,6 +115,10 @@ const Navbar = () => {
         </ul>
       </nav>
     </div >
+        )
+      }
+    
+    </>
   )
 }
 

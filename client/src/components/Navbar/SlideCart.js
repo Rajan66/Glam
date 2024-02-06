@@ -1,5 +1,7 @@
-import CartImg from '../../images/cartimg.jpg'
+import CartImg from '../../images/cartimg.png'
 
+const SlideCart = () =>{
+  return(
 <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
   {/* <!--
     Background backdrop, show/hide based on slide-over state.
@@ -125,3 +127,7 @@ import CartImg from '../../images/cartimg.jpg'
     </div>
   </div>
 </div>
+)
+}
+
+export default SlideCart
