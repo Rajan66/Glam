@@ -60,6 +60,13 @@ const Navbar = () => {
       })
       .catch((error) => console.error(error.message));
   };
+  const handleLogin = () => {
+      navigate('/auth')
+  };
+
+  const handleCart = ()=>{
+      navigate('/checkout')
+  }
 
   const handleCart=()=>{
     
@@ -92,7 +99,7 @@ const Navbar = () => {
                 Log out
               </Button>
             ) : (
-              <Button className='nav-item' onClick={handleLogout} variant='text' >
+              <Button className='nav-item' onClick={handleLogin} variant='text' >
                 Log in
               </Button>
             )}
