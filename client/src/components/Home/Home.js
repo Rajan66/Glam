@@ -4,6 +4,7 @@ import Products from '../Products/Products';
 import Hero from '../Hero/Hero';
 import Card from '../Card/Card';
 import Navbar from '../Navbar/Navbar'
+import Footer from '../Footer/Footer'
 
 import { getProducts } from '../../actions/products';
 import { Button } from '@mui/material';
@@ -27,6 +28,7 @@ const Home = () => {
       <h1></h1>
       {/* hargaye ham toh line ma aauxa products haru dimag kharab karli*/}
       {/* <Products setCurrentId={setCurrentId} /> */}
+      <Footer />
     </div>
   )
 }

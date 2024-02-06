@@ -31,7 +31,7 @@ const AllProducts = ({ setCurrentId }) => {
                             <td><div><span>{product.title}</span></div></td>
                             <td>{product.title}</td>
                             <td>{product.category}</td>
-                            <td>2000</td>
+                            <td>{product.price}</td>
                             <td>
                                 <IconButton color='primary' onClick={() => setCurrentId(product._id)} >
                                     <UpdateIcon />
