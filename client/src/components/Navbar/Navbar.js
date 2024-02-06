@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
+
 const Navbar = () => {
   const navigate = useNavigate()
 
@@ -60,6 +61,10 @@ const Navbar = () => {
       .catch((error) => console.error(error.message));
   };
 
+  const handleCart=()=>{
+    
+  }
+
   return (
     <div className={color ? 'header header-bg' : 'header'}>
       <nav className='navbar'>
@@ -78,7 +83,7 @@ const Navbar = () => {
           <li className='nav-item'>
             <a href='/'>About</a>
           </li>
-          <li className='nav-item'>
+          <li className='nav-item' onClick={handleCart}>
             <a href=''>Cart {cartSize}</a>
           </li>
           <li>
