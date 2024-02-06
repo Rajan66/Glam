@@ -15,6 +15,8 @@ import { useSelector } from 'react-redux'
 const Navbar = () => {
   const navigate = useNavigate()
 
+  const auth = window.localStorage.getItem('auth')
+
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartSize = cartItems.length;
 
@@ -80,9 +82,16 @@ const Navbar = () => {
             <a href=''>Cart {cartSize}</a>
           </li>
           <li>
-            <Button className='nav-item' onClick={handleLogout} variant='text' >
-              Logout
-            </Button>
+            {auth ? (
+              <Button className='nav-item' onClick={handleLogout} variant='text' >
+                Log out
+              </Button>
+            ) : (
+              <Button className='nav-item' onClick={handleLogout} variant='text' >
+                Log in
+              </Button>
+            )}
+
           </li>
         </ul>
       </nav>
