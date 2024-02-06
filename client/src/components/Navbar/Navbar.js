@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import { signOut, setPersistence, browserSessionPersistence } from 'firebase/compat/auth';
@@ -35,6 +35,10 @@ const Navbar = () => {
     }
   }
 
+  useEffect(() => {
+    
+  },[auth])
+
   window.addEventListener('scroll', changeColor)
 
   //close menu on click
@@ -68,9 +72,6 @@ const Navbar = () => {
       navigate('/checkout')
   }
 
-  const handleCart=()=>{
-    
-  }
 
   return (
     <div className={color ? 'header header-bg' : 'header'}>
@@ -95,11 +96,11 @@ const Navbar = () => {
           </li>
           <li>
             {auth ? (
-              <Button className='nav-item' onClick={handleLogout} variant='text' >
+              <Button className='nav-item' onClick={handleLogout} variant='outlined'>
                 Log out
               </Button>
             ) : (
-              <Button className='nav-item' onClick={handleLogin} variant='text' >
+              <Button className='nav-item' onClick={handleLogin} variant='outlined' >
                 Log in
               </Button>
             )}

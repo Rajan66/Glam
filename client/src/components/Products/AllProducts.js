@@ -4,7 +4,7 @@ import Demo from '../../images/demo.jpg'
 const AllProducts = () => {
   return (
     <>
-      <div class="text-center p-10">
+      <div class="text-center text-decoration-underline p-10">
         <h1 class="font-bold text-4xl mb-4">All Products</h1>
         {/* <h1 class="text-3xl">Tailwind CSS</h1> */}
       </div>
@@ -16,7 +16,7 @@ const AllProducts = () => {
             <img src={Demo}
               alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
             <div class="px-4 py-3 w-72">
-              <span class="text-gray-400 mr-3 uppercase text-xs">Maybelline</span>
+              <span class="text-gray-600 mr-3 uppercase text-xs">Maybelline</span>
               <p class="text-lg font-bold text-black truncate block capitalize">Eyeliner</p>
               <div class="flex items-center">
                 <p class="text-lg font-semibold text-black cursor-auto my-3">Rs. 2000</p>
@@ -37,7 +37,7 @@ const AllProducts = () => {
             <img src={Demo}
               alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
             <div class="px-4 py-3 w-72">
-              <span class="text-gray-400 mr-3 uppercase text-xs">Fenty Beauty</span>
+              <span class="text-gray-600 mr-3 uppercase text-xs">Fenty Beauty</span>
               <p class="text-lg font-bold text-black truncate block capitalize">Lipstick</p>
               <div class="flex items-center">
                 <p class="text-lg font-semibold text-black cursor-auto my-3">Rs 2000</p>
@@ -59,7 +59,7 @@ const AllProducts = () => {
             <img src={Demo}
               alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
             <div class="px-4 py-3 w-72">
-              <span class="text-gray-400 mr-3 uppercase text-xs">L.A. Girl</span>
+              <span class="text-gray-600 mr-3 uppercase text-xs">L.A. Girl</span>
               <p class="text-lg font-bold text-black truncate block capitalize">Blush</p>
               <div class="flex items-center">
                 <p class="text-lg font-semibold text-black cursor-auto my-3">Rs 2000</p>
@@ -81,7 +81,7 @@ const AllProducts = () => {
             <img src={Demo}
               alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
             <div class="px-4 py-3 w-72">
-              <span class="text-gray-400 mr-3 uppercase text-xs">M.A.C</span>
+              <span class="text-gray-600 mr-3 uppercase text-xs">M.A.C</span>
               <p class="text-lg font-bold text-black truncate block capitalize">Eyeshadow pallette</p>
               <div class="flex items-center">
                 <p class="text-lg font-semibold text-black cursor-auto my-3">Rs 23000</p>
@@ -103,7 +103,7 @@ const AllProducts = () => {
             <img src={Demo}
               alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
             <div class="px-4 py-3 w-72">
-              <span class="text-gray-400 mr-3 uppercase text-xs">Lakme</span>
+              <span class="text-gray-600 mr-3 uppercase text-xs">Lakme</span>
               <p class="text-lg font-bold text-black truncate block capitalize">Loose Powder</p>
               <div class="flex items-center">
                 <p class="text-lg font-semibold text-black cursor-auto my-3">Rs 200</p>
@@ -125,7 +125,7 @@ const AllProducts = () => {
             <img src={Demo}
               alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
             <div class="px-4 py-3 w-72">
-              <span class="text-gray-400 mr-3 uppercase text-xs">NYX</span>
+              <span class="text-gray-600 mr-3 uppercase text-xs">NYX</span>
               <p class="text-lg font-bold text-black truncate block capitalize">Lip Gloss</p>
               <div class="flex items-center">
                 <p class="text-lg font-semibold text-black cursor-auto my-3">Rs 600</p>
