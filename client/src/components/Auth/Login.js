@@ -11,9 +11,9 @@ const Login = ({handleGoogleLogin}) => {
                     <h1 className='text-4x1 text-white font-bold my-4'>Turn your Ideas into Reality</h1>
                     <p className='text-x1 text-white font-normal'>Start for free and get attractive offers from the community</p>
                 </div>
-                <img src={COVER_IMAGE} className="w-full h-full object-cover" />
+                <img src={COVER_IMAGE} className="w-full h-full object-fill" />
             </div>
-            <div className='w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 justify-between items-center'>
+            <div className='w-1/2 h-fit bg-[#f5f5f5] flex flex-col p-20 justify-between items-center'>
                 <h1 className="w-full max-w-[500px] mx-auto text-xl text-[#060606] font-semibold mr-auto">Glam Hour</h1>
                 <div className="w-full flex flex-col max-w-[500px]">
                     <div className='w-full flex flex-col mb-2'>
@@ -57,11 +57,12 @@ const Login = ({handleGoogleLogin}) => {
                         <img src={GOOGLE_ICON} className='h-6 mr-2' />
                         Sign in with Google
                     </div>
+                
                 </div>
-
                 <div className='w-full flex items-center justify-center'>
                     <p className='text-sm font-normal text-[#060606]'>Don't have an account?<span className='font-semibold underline underline-offset-2 cursor-pointer'>Sign up for free</span></p>
                 </div>
+                
 
             </div>
         </div>
