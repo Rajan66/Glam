@@ -7,7 +7,7 @@ import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
 
 import { getProducts } from '../../actions/products';
-import { Button } from '@mui/material';
+
 
 
 const Home = () => {
@@ -23,11 +23,11 @@ const Home = () => {
     <div>
       <Navbar />
       <Hero />
-      <Card products={products} />
+      {/* <Card products={products} /> */}
     
       <h1></h1>
       {/* hargaye ham toh line ma aauxa products haru dimag kharab karli*/}
-      {/* <Products setCurrentId={setCurrentId} /> */}
+      <Products products={products} />
       <Footer />
     </div>
   )

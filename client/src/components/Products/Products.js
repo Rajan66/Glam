@@ -5,23 +5,18 @@ import Product from './Product/Product'
 
 import './styles.css'
 
-const Products = () => {
-    const products = useSelector((state) => state.products)
+const Products = ({ products, setCurrentId }) => {
     return (
-        <div className='cards'>
-            <div className='container'>
-                <h2>All Products</h2>
-                <span className='line'></span>
-                <div className='content'></div>
-                {products.map((product) => (
-                    <Grid key={product._id} item>
-                        <Product product={product} />
-                    </Grid>
-                ))}
+        <section className='py-16'>
+            <div className="container mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0">
+                    {products.map((product) => {
+                        return <Product product={product} key={product._id}/>
+                    })}
+                </div>
 
             </div>
-        </div>
-
+        </section >
     )
 }
 
