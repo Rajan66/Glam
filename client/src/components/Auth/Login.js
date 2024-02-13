@@ -11,9 +11,9 @@ const Login = ({handleGoogleLogin}) => {
                     <h1 className='text-4x1 text-white font-bold my-4'>    Wake up and makeup</h1>
                     <p className='text-x1 text-white font-normal'></p>
                 </div>
-                <img src={COVER_IMAGE} className="w-full h-full object-fill" />
+                <img src={COVER_IMAGE} className="w-full h-full object-cover" />
             </div>
-            <div className='w-1/2 h-fit bg-[#f5f5f5] flex flex-col p-20 justify-between items-center'>
+            <div className='w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 justify-between items-center'>
                 <h1 className="w-full max-w-[500px] mx-auto text-xl text-[#060606] font-semibold mr-auto">Glam Hour</h1>
                 <div className="w-full flex flex-col max-w-[500px]">
                     <div className='w-full flex flex-col mb-2'>
