@@ -11,8 +11,9 @@ import { addToCart } from '../../../actions/cart'
 import '../styles.css'
 
 const Product = ({ product }) => {
+  console.log(product)
   const dispatch = useDispatch()
-  const { _id, productImage, title, tags, price } = product
+  const { _id, productImage, title, category, price } = product
   return (
     <div>
       <div className='border border-[#e4e4e4] h-[350px] mb-4 relative overflow-hidden group transition'>
@@ -28,11 +29,15 @@ const Product = ({ product }) => {
             </div>
           </button>
           <Link to={`/product/${_id}`} className='w-12 h-12 bg-white flex justify-center items-center text-black drop-shadow-xl'>
-            <BsEyeFill/>
+            <BsEyeFill />
           </Link>
         </div>
       </div>
-      <div>2</div>
+      <div>
+        <div className='text-md capitalize text-gray-500 mb-1'>{category}</div>
+        <Link style={{ textDecoration: 'none' }}><h4 className='font-semibold mb-1 text-black'>{title}</h4></Link>
+        <div className='font-semibold'>$ {price}</div>
+      </div>
     </div>
   )
 }
