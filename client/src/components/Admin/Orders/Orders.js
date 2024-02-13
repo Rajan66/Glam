@@ -6,28 +6,28 @@ import OrderItem from './OrderItem';
 const Orders = () => {
   const dispatch = useDispatch()
   const orders = useSelector((state) => state.orders)
-  
-  
+  console.log(orders)
+
   useEffect(() => {
     dispatch(getOrders())
-  }, [orders])
-
+  }, [])
+  
   return (
-  <>
-    {orders ? (
-      <div className="order-list">
-        <h2>Orders</h2>
-        {orders.map(order => (
-          <OrderItem key={order._id} order={order} />
-        ))}
-    </div>
-    ) : (
-    <div>
-      No orders
-    </div>
-    )}  
+    <>
+      {orders ? (
+        <div className="order-list">
+          <h2>Orders</h2>
+          {orders.map(order => (
+            <OrderItem key={order._id} order={order} />
+          ))}
+        </div>
+      ) : (
+        <div>
+          No orders
+        </div>
+      )}
 
-  </>
+    </>
   );
 };
 

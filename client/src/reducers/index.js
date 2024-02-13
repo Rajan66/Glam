@@ -3,7 +3,7 @@ import { combineReducers } from 'redux'
 import products from './products'
 import user from './user'
 import cart from './cart'
-import order from './order'
+import orders from './orders'
 
 import cartReducer from '../reducers/cart'
 
@@ -18,4 +18,4 @@ const initialState = {
 };
 
 
-export default combineReducers({ products, user, order,cart: cartReducer })
+export default combineReducers({ products, user, orders,cart: cartReducer })

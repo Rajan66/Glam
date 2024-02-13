@@ -18,17 +18,18 @@ const Auth = () => {
 
   useEffect(() => {
 
-    dispatch(getUsers())
+
     firebase.auth().onAuthStateChanged((userCred) => {
       if (userCred) {
         setAuth(true)
+        checkModerator(userCred)
         window.localStorage.setItem('auth', true)
         userCred.getIdToken()
           .then((token) => setToken(token))
-        checkModerator(userCred)
       }
     })
-  }, [dispatch, auth])
+    dispatch(getUsers())
+  }, [dispatch, auth, isAdmin])
 
   const checkModerator = (userCred) => {
 
@@ -66,7 +67,7 @@ const Auth = () => {
 
   return (
     <div>
-      <Login handleGoogleLogin={handleGoogleLogin}/>
+      <Login handleGoogleLogin={handleGoogleLogin} />
     </div>
   )
 }
