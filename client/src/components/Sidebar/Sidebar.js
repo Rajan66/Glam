@@ -6,9 +6,14 @@ import { IoMdArrowForward } from 'react-icons/io'
 import { FiTrash2 } from 'react-icons/fi'
 
 import { SidebarContext } from './SidebarContext'
+import { CartContext } from '../Cart/CartContext'
 
 const Sidebar = () => {
     const { isOpen, handleClose } = useContext(SidebarContext)
+
+    const { cart, setCart } = useContext(CartContext)
+    
+
     return (
         <div className={`${isOpen ? 'right-0' : '-right-full'} 
         w-full bg-white fixed top-0 h-full shadow-2xl md:w-[35vw] xl:max-w-[30vw]

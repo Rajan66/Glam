@@ -9,19 +9,23 @@ import { applyMiddleware, compose } from 'redux';
 import './config/firebase-config'
 
 import SidebarProvider from './components/Sidebar/SidebarContext';
+import CartProvider from './components/Cart/CartContext';
 
 import reducers from './reducers'
 import { thunk } from 'redux-thunk'
+
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)))
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <SidebarProvider>
-    <React.StrictMode>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </React.StrictMode>
+    <CartProvider>
+      <React.StrictMode>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </React.StrictMode>
+    </CartProvider>
   </SidebarProvider>
 );
