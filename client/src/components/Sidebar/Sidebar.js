@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 
 import { Link } from 'react-router-dom'
 
+import CartItem from '../Cart/CartItem'
+
 import { IoMdArrowForward } from 'react-icons/io'
 import { FiTrash2 } from 'react-icons/fi'
 
@@ -11,8 +13,8 @@ import { CartContext } from '../Cart/CartContext'
 const Sidebar = () => {
     const { isOpen, handleClose } = useContext(SidebarContext)
 
-    const { cart, setCart } = useContext(CartContext)
-    
+    const { cart } = useContext(CartContext)
+
 
     return (
         <div className={`${isOpen ? 'right-0' : '-right-full'} 
@@ -20,7 +22,6 @@ const Sidebar = () => {
         transition-all duration-300 z-20 px-4 lg:px-[35px]`}>
             <div className='flex items-center justify-between py-6 border-b'>
                 <div className='uppercase text-sm font-semibold'>Shopping Bag (0)</div>
-
                 <div
                     onClick={handleClose}
                     className='cursor-pointer w-8 h-8 flex 
@@ -28,6 +29,11 @@ const Sidebar = () => {
                 >
                     <IoMdArrowForward className='text-2xl' />
                 </div>
+            </div>
+            <div>
+                {cart.map((item) => {
+                return <CartItem item={item} key={item._id} />
+            })}
             </div>
         </div>
     )
