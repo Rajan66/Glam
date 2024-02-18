@@ -1,13 +1,10 @@
 import React, { useContext } from 'react'
-import { useDispatch,useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { BsPlus, BsEyeFill } from 'react-icons/bs'
 
 import { addToCart, deleteItem } from '../../../actions/cart'
-
-
-
 
 import '../styles.css'
 
