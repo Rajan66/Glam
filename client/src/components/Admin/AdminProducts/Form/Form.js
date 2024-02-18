@@ -16,7 +16,6 @@ const Form = ({ currentId, setCurrentId }) => {
     }, [product])
 
     const handleSubmit = (e) => {
-        e.preventDefault()
         // update takes a reload idk why 
         if (currentId) {
             dispatch(updateProduct(currentId, productData))
