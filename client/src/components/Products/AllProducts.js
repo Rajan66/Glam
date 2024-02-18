@@ -1,6 +1,7 @@
 import React from 'react'
 import Demo from '../../images/demo.jpg'
 
+
 const AllProducts = () => {
   return (
     <>
