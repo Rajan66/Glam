@@ -1,5 +1,6 @@
 import React from 'react'
 import Demo from '../../images/demo.jpg'
+import Navbar from '../Navbar/Navbar'
 
 
 const AllProducts = () => {

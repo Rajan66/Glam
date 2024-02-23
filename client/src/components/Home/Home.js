@@ -14,7 +14,6 @@ import Sidebar from '../Sidebar/Sidebar';
 const Home = () => {
   const products = useSelector((state) => state.products)
   const dispatch = useDispatch()
-  const [currentId, setCurrentId] = useState(0);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -22,15 +21,15 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar/>
       <Hero />
-   
-      {/* <Card products={products} /> */}
+
+      {/* <Card products={products} /> (delete Card later) */}
       <Sidebar />
       <Products products={products} />
       <About />
       <Footer />
-      
+
 
     </div>
   )

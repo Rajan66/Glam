@@ -73,7 +73,7 @@ const Navbar = () => {
     <>
       <div className={color ? 'header header-bg' : 'header'}>
         <nav className='navbar'>
-          <Link href='#' className='logo'>
+          <Link to='/' className='logo'>
             <img src= {logo} alt='logo' />
           </Link>
           <div className='ham' onClick={handleClick}>

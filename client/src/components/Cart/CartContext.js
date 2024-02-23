@@ -5,7 +5,6 @@ export const CartContext = createContext()
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
 
-
     const [itemAmount, setItemAmount] = useState(0)
 
     const [total, setTotal] = useState(0)
@@ -21,7 +20,6 @@ const CartProvider = ({ children }) => {
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
     }, [cart]);
-
 
     useEffect(() => {
         const total = cart.reduce((accumulator, currentItem) => {

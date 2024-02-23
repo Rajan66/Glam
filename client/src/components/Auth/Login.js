@@ -17,7 +17,7 @@ const Login = ({handleGoogleLogin}) => {
                 <h1 className="w-full max-w-[500px] mx-auto text-xl text-[#060606] font-semibold mr-auto">Glam Hour</h1>
                 
                 <div className="w-full flex flex-col max-w-[500px]">
-                    <div className='w-full flex flex-col'>
+                    <div className='w-full flex flex-col mb-2'>
                         <h3 className='text-3xl font-semibold mb-2'>Login</h3>
                         <p className='text-base mb-2'>Welcome Back! Please enter your details</p>
                     </div>
@@ -26,13 +26,13 @@ const Login = ({handleGoogleLogin}) => {
                         <input
                             type='email'
                             placeholder='Email'
-                            className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                            className='w-full text-black py-4 sm:py-2 md:py-2 my-4 bg-transparent border-b border-black outline-none focus:outline-none'
                         />
 
                         <input
                             type='password'
                             placeholder='Password'
-                            className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                            className='w-full text-black py-4 sm:py-2 md:py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
                         />
                     </div>
 
@@ -46,15 +46,15 @@ const Login = ({handleGoogleLogin}) => {
                     </div>
 
                     <div className='w-full flex flex-col my-4'>
-                        <button className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-3 text-center flex items-center justify-center cursor-pointer'>Log in</button>
-                        <button className='w-full text-[#060606] my-2 font-semibold bg-white border border-black rounded-md p-3 text-center flex items-center justify-center cursor-pointer'>Register</button>
+                        <button className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 sm:py-3 md:py-3 text-center flex items-center justify-center cursor-pointer'>Log in</button>
+                        <button className='w-full text-[#060606] my-2 font-semibold bg-white border border-black rounded-md p-4 sm:py-3 md:py-3 text-center flex items-center justify-center cursor-pointer'>Register</button>
                     </div>
 
                     <div className='w-full flex items-center justify-center relative py-2'>
                         <div className='w-full h-[1px] bg-black/40'></div>
                         <p className='text-lg absolute text-black/80 bg-[#f5f5f5]'>or</p>
                     </div>
-                    <div className='w-full text-[#060606] my-2 font-semibold bg-white border border-black/40 rounded-md p-3 text-center flex items-center justify-center cursor-pointer' onClick={handleGoogleLogin}>
+                    <div className='w-full text-[#060606] my-2 font-semibold bg-white border border-black/40 rounded-md p-4 sm:py-3 md:py-3 text-center flex items-center justify-center cursor-pointer' onClick={handleGoogleLogin}>
                         <img src={GOOGLE_ICON} className='h-6 mr-2' />
                         Sign in with Google
                     </div>
