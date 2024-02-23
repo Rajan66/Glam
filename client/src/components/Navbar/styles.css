@@ -7,6 +7,7 @@
     z-index: 1;
     transition: .3s ease-in;
     overflow: hidden;
+    /* background-color: rgba(0, 0, 0, 0.9); */
 }
 
 .header-bg{
@@ -35,6 +36,7 @@
     text-decoration: none;
     padding: 1rem;
     font-weight: 500;
+    color: #ffffff;
 }
 
 .nav-item .active {
@@ -64,9 +66,16 @@
     .header .navbar {
         max-width: 100%;
     }
+
     .ham {
         display: block;
     }
+
+    .navbar ul{
+        text-decoration: none;
+        
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;

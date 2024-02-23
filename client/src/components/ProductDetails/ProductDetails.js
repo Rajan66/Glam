@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
 import Demo from '../../images/demo.jpg'
 import Demo1 from '../../images/demo1.jpg'
+import './ProductDetails.css'
+
 
 const ProductDetails = () => {
     const { id } = useParams()
@@ -10,12 +12,12 @@ const ProductDetails = () => {
     return (
         <>
         <Navbar/>
-        <section class="overflow-hidden bg-white py-11 font-poppins dark:bg-gray-800">
+        <section class="overflow-hidden bg-grey py-11 font-poppins dark:bg-gray-800">
             <div class="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
                 <div class="flex flex-wrap -mx-4">
                     <div class="w-full px-4 md:w-1/2 ">
                         <div class="sticky top-0 z-50 overflow-hidden ">
-                        <div class="relative mb-6 lg:mb-10 lg:h-2/4 ">
+                        <div class="relative mb-6 lg:mb-10 lg:h-2/4 "><br></br><br></br>
                             <img src={Demo} class="object-cover w-full lg:h-full"></img>
                         </div>
                         <div class="flex-wrap hidden md:flex ">
