@@ -23,7 +23,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Hero />
-      <Header />
+   
       {/* <Card products={products} /> */}
       <Sidebar />
       <Products products={products} />
