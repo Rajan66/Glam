@@ -24,11 +24,11 @@ const Home = () => {
     <div>
       <Navbar />
       <Hero />
-      <About />
    
       {/* <Card products={products} /> */}
       <Sidebar />
       <Products products={products} />
+      <About />
       <Footer />
 
     </div>
