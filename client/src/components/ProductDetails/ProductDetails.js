@@ -12,7 +12,7 @@ const ProductDetails = () => {
     return (
         <>
         <Navbar/>
-        <section class="overflow-hidden bg-grey py-11 font-poppins dark:bg-gray-800">
+        <section class="overflow-hidden bg-gray py-11 font-poppins dark:bg-gray-800">
             <div class="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
                 <div class="flex flex-wrap -mx-4">
                     <div class="w-full px-4 md:w-1/2 ">
