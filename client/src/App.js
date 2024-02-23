@@ -7,6 +7,7 @@ import Auth from './components/Auth/Auth'
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import AllProducts from './components/Products/AllProducts';
 import Checkout from './components/Checkout/Checkout'
+import About from './components/About/About'
 
 import './App.css';
 
@@ -23,6 +24,8 @@ function App() {
           <Route path="/checkout/" Component={Checkout} />
         </Routes>
       </Router>
+      <div>
+      </div>
     </>
   );
 }

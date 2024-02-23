@@ -5,6 +5,7 @@ import Hero from '../Hero/Hero';
 import Navbar from '../Navbar/Navbar'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import About from '../About/About'
 
 import { getProducts } from '../../actions/products';
 import Sidebar from '../Sidebar/Sidebar';
@@ -23,6 +24,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Hero />
+      <About />
    
       {/* <Card products={products} /> */}
       <Sidebar />

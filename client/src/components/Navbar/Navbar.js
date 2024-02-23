@@ -13,7 +13,11 @@ import { SidebarContext } from '../Sidebar/SidebarContext'
 import { CartContext } from '../Cart/CartContext'
 
 import { BsBag } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+
+import { Link } from 'react-scroll'
+
+import logo from '../../images/logo.png'
 
 import './styles.css'
 
@@ -68,9 +72,9 @@ const Navbar = () => {
     <>
       <div className={color ? 'header header-bg' : 'header'}>
         <nav className='navbar'>
-          <a href='#' className='logo'>
-            {/* <img rakhne hoki logo ko vanera banako :lumanathink: */}
-          </a>
+          <Link href='#' className='logo'>
+            <img src= {logo} alt='logo' />
+          </Link>
           <div className='ham' onClick={handleClick}>
             {click ? (<FaTimes size={30} style={{ color: '#fff' }} />)
               : (<FaBars size={30} style={{ color: '#fff' }} />)}
@@ -78,10 +82,10 @@ const Navbar = () => {
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className='nav-item'>
-              <a href='/'>Home</a>
+              <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} >Home</Link>
             </li>
             <li className='nav-item'>
-              <a href='/'>About</a>
+            <Link to="about" spy={true} offset={-100} duration={500} >About</Link>
             </li>
             <li className='nav-item'>
               <div

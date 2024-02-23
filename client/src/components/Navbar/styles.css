@@ -10,7 +10,7 @@
 }
 
 .header-bg{
-    background-color: rgba(0,0,0,.9);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .header .navbar {
@@ -37,6 +37,11 @@
     font-weight: 500;
 }
 
+.nav-item .active {
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
 .header .nav-item a:hover {
     padding-bottom: 12px;
     border-bottom: 3px solid var(--secondary-color);
@@ -45,18 +50,13 @@
 .ham{
     display: none;
 }
-/*
 
 .header .navbar img {
-    width: 250px;
+    width: 220px;
     height: auto;
 }
 
-
- */
-
-
- @media screen and (max-width:940px) {
+@media screen and (max-width:940px) {
     .header {
         max-width: 100%;
         background-color: rgba(0,0,0,.9);
