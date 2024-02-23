@@ -30,6 +30,7 @@ const Home = () => {
       <Products products={products} />
       <About />
       <Footer />
+      
 
     </div>
   )

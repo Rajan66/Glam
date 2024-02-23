@@ -2,7 +2,6 @@ import React from 'react'
 import brow from '../../images/brow.jpg'
 import './About.css'
 
-
 const About = () => {
   return (
     <div className='about' id='about'>
@@ -22,5 +21,9 @@ const About = () => {
     </div>
   )
 }
+
+
+
+
 
 export default About
