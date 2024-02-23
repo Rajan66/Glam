@@ -1,19 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
-import { signOut, setPersistence, browserSessionPersistence } from 'firebase/compat/auth';
-import { getAuth } from 'firebase/compat/auth';
 
-import './styles.css'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { Button } from '@mui/material'
 
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import SlideCart from './SlideCart'
 
+import { SidebarContext } from '../Sidebar/SidebarContext'
+
+import { CartContext } from '../Cart/CartContext'
+
+import { BsBag } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
+
+import './styles.css'
 
 const Navbar = () => {
+  const { isOpen, setIsOpen } = useContext(SidebarContext)
+  const { itemAmount } = useContext(CartContext)
+
   const navigate = useNavigate()
 
   const [auth, setAuth] = useState(false || window.localStorage.getItem('auth') === true)
@@ -77,8 +84,14 @@ const Navbar = () => {
               <a href='/'>About</a>
             </li>
             <li className='nav-item'>
-
-              <a href=''>Cart {cartSize}</a>
+              <div
+                onClick={() => setIsOpen(!isOpen)}
+                className='cursor-pointer flex relative sm:justify-center items-center'>
+                <BsBag className='text-2xl text-white' />
+                <div className='bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px]
+                     text-white rounded-full flex justify-center items-center'>{itemAmount}
+                </div>
+              </div>
             </li>
             <li>
               {auth ? (

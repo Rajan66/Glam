@@ -32,6 +32,7 @@
 }
 
 .header .nav-item {
+    text-decoration: none;
     padding: 1rem;
     font-weight: 500;
 }
