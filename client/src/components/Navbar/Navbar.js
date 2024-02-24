@@ -74,17 +74,17 @@ const Navbar = () => {
       <div className={color ? 'header header-bg' : 'header'}>
         <nav className='navbar'>
           <Link to='/' className='logo'>
-            <img src= {logo} alt='logo' />
+            <img src={logo} alt='logo' />
           </Link>
           <div className='ham' onClick={handleClick}>
             {click ? (<FaTimes size={30} style={{ color: '#fff' }} />)
               : (<FaBars size={30} style={{ color: '#fff' }} />)}
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className='nav-item'>
+            <li className='nav-item cursor-pointer'>
               <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} onClick={closeMenu}>Home</Link>
             </li>
-            <li className='nav-item'>
+            <li className='nav-item cursor-pointer'>
               <Link to="about" spy={true} offset={-100} duration={500} onClick={closeMenu}>About</Link>
             </li>
             <li className='nav-item'>
@@ -101,7 +101,7 @@ const Navbar = () => {
                 <Button className='nav-item' onClick={handleLogout} variant='outlined'>
                   Log out
                 </Button>
-                ) : (
+              ) : (
                 <Button className='nav-item' onClick={handleLogin} variant='outlined' >
                   Log in
                 </Button>

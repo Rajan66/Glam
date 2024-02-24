@@ -10,6 +10,7 @@ import About from '../About/About'
 import { getProducts } from '../../actions/products';
 import Sidebar from '../Sidebar/Sidebar';
 import { Link } from 'react-router-dom';
+import BestSellers from '../BestSellers/BestSellers';
 
 
 const Home = () => {
@@ -24,14 +25,10 @@ const Home = () => {
     <div>
       <Navbar />
       <Hero />
-
-      {/* <Card products={products} /> (delete Card later) */}
-      <Sidebar />
       <Products products={products} />
       <About />
+      <BestSellers/>
       <Footer />
-
-
     </div>
   )
 }

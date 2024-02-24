@@ -16,10 +16,8 @@ import Sidebar from './components/Sidebar/Sidebar';
 function App() {
   return (
     <>
-
       <Router>
-
-        <Sidebar/>
+        <Sidebar />
         <Routes>
           <Route path="/" Component={Home} />
           <Route path="/admin" Component={Admin} />
@@ -29,8 +27,6 @@ function App() {
           <Route path="/checkout/" Component={Checkout} />
         </Routes>
       </Router>
-      <div>
-      </div>
     </>
   );
 }

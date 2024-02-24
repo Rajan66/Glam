@@ -1,6 +1,7 @@
 export const FETCH_ALL = 'FETCH_ALL'
 export const FETCH_USERS = 'FETCH_USERS'
 export const FETCH_ORDERS = 'FETCH_ORDERS'
+export const FETCH_PRODUCTS = 'FETCH_PRODUCTS'
 export const FETCH = 'FETCH'
 export const CREATE = 'CREATE'
 export const UPDATE = 'UPDATE'
