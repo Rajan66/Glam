@@ -11,9 +11,9 @@ import { Link } from 'react-router-dom';
 
 const BestSellers = ({ products }) => {
 
-    // console.log(products)
+    console.log(products)
     const bestSellers = products.filter((item) => item.status === "Best Sellers");
-    // console.log(bestSellers)
+    console.log(bestSellers)
 
     return (
         <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4">
@@ -27,14 +27,28 @@ const BestSellers = ({ products }) => {
             {/* best seller products card */}
             <div className='mb-16'>
                 <Swiper
-                    spaceBetween={30}
-                    centeredSlides={true}
+                    slidesPerView={1}
+                    spaceBetween={10}
                     autoplay={{
-                        delay: 2500,
+                        delay: 3000,
                         disableOnInteraction: false,
                     }}
                     pagination={{
                         clickable: true,
+                    }}
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 40,
+                        },
+                        1024: {
+                            slidesPerView: 4,
+                            spaceBetween: 50,
+                        },
                     }}
                     navigation={true}
                     modules={[Autoplay, Pagination, Navigation]}
@@ -42,10 +56,10 @@ const BestSellers = ({ products }) => {
                 >
                     {
                         bestSellers.map((product) => (
-                            <SwiperSlide key={product.id}>
-                                <Link to={`/shop/${product.id}`}>
+                            <SwiperSlide key={product._id}>
+                                <Link to={`/product/${product._id}`}>
                                     <img
-                                        src={product.image}
+                                        src={product.productImage}
                                         alt={product.title}
                                         className="mx-auto w-full hover:scale-105 transition-all duration-300"
                                     />
@@ -55,7 +69,7 @@ const BestSellers = ({ products }) => {
 
                                     <div className="flex justify-between">
                                         <p className="text-black/50">{product.category}</p>
-                                        <p className="font-semibold">${product.price}</p>
+                                        <p className="font-semibold">Rs. {product.price}</p>
                                     </div>
                                 </div>
                             </SwiperSlide>

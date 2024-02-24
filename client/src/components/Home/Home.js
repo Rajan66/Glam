@@ -27,7 +27,7 @@ const Home = () => {
       <Hero />
       <Products products={products} />
       <About />
-      <BestSellers/>
+      <BestSellers products={products}/>
       <Footer />
     </div>
   )

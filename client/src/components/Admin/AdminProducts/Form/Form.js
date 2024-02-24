@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 
 const Form = ({ currentId, setCurrentId }) => {
     const dispatch = useDispatch()
-    const [productData, setProductData] = useState({ title: '', description: '', category: '', price: '', productImage: '' })
+    const [productData, setProductData] = useState({ title: '', description: '', category: '', status: '',price: '', productImage: '' })
     const product = useSelector((state) => currentId ? state.products.find((p) => p._id === currentId) : null)
     useEffect(() => {
         if (product) {
@@ -31,8 +31,9 @@ const Form = ({ currentId, setCurrentId }) => {
             title: "",
             description: "",
             category: "",
+            status: "",
             price: "",
-            productImage:"",
+            productImage: "",
         });
     }
     return (
@@ -42,6 +43,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 <TextField style={{ margin: 10 }} name="title" variant="outlined" label="Title" fullWidth value={productData.title} onChange={(e) => setProductData({ ...productData, title: e.target.value })} />
                 <TextField style={{ margin: 10 }} name="description" variant="outlined" label="Description" fullWidth multiline rows={4} value={productData.description} onChange={(e) => setProductData({ ...productData, description: e.target.value })} />
                 <TextField style={{ margin: 10 }} name="category" variant="outlined" label="Category" fullWidth value={productData.category} onChange={(e) => setProductData({ ...productData, category: e.target.value })} />
+                <TextField style={{ margin: 10 }} name="status" variant="outlined" label="Status" fullWidth value={productData.status} onChange={(e) => setProductData({ ...productData, status: e.target.value })} />
                 <TextField style={{ margin: 10 }} name="price" variant="outlined" label="Price" fullWidth value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })} />
                 <div>
                     <FileBase type="file" multiple={false} onDone={({ base64 }) => setProductData({ ...productData, productImage: base64 })}></FileBase>
