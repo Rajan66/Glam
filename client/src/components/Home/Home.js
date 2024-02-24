@@ -9,6 +9,7 @@ import About from '../About/About'
 
 import { getProducts } from '../../actions/products';
 import Sidebar from '../Sidebar/Sidebar';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -21,12 +22,15 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Hero />
 
       {/* <Card products={products} /> (delete Card later) */}
       <Sidebar />
       <Products products={products} />
+      <Link to='/products' >
+        <button>View All</button>
+      </Link>
       <About />
       <Footer />
 

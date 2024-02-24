@@ -41,7 +41,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 <Typography variant="h6">Creating a Product</Typography>
                 <TextField style={{ margin: 10 }} name="title" variant="outlined" label="Title" fullWidth value={productData.title} onChange={(e) => setProductData({ ...productData, title: e.target.value })} />
                 <TextField style={{ margin: 10 }} name="description" variant="outlined" label="Description" fullWidth multiline rows={4} value={productData.description} onChange={(e) => setProductData({ ...productData, description: e.target.value })} />
-                <TextField style={{ margin: 10 }} name="category" variant="outlined" label="Category" fullWidth value={productData.category} onChange={(e) => setProductData({ ...productData, category: e.target.value.split(',') })} />
+                <TextField style={{ margin: 10 }} name="category" variant="outlined" label="Category" fullWidth value={productData.category} onChange={(e) => setProductData({ ...productData, category: e.target.value })} />
                 <TextField style={{ margin: 10 }} name="price" variant="outlined" label="Price" fullWidth value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })} />
                 <div>
                     <FileBase type="file" multiple={false} onDone={({ base64 }) => setProductData({ ...productData, productImage: base64 })}></FileBase>

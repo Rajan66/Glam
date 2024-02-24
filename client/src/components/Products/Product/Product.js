@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 
 import { BsPlus, BsEyeFill } from 'react-icons/bs'
 
-import { addToCart } from '../../../actions/cart'
-
 import { CartContext } from '../../Cart/CartContext'
 
 import '../styles.css'
@@ -25,10 +23,9 @@ const Product = ({ product }) => {
           </div>
         </div>
         <div className='absolute top-1 -right-14 group-hover:right-1 p-2 flex flex-col items-center justify-center gap-y-2  group-hover:opacity-100 transition-all duration-300 '>
-          <button onClick={() => addToCart(product,_id)}>
+          <button onClick={() => addToCart(product, _id)}>
             <div className='flex justify-center items-center text-white w-12 h-12 bg-red-500'>
               <BsPlus className='text-3xl' />
-
             </div>
           </button>
           <Link to={`/product/${_id}`} className='w-12 h-12 bg-white flex justify-center items-center text-black drop-shadow-xl'>

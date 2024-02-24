@@ -7,12 +7,13 @@
     z-index: 1; /* other values overlaps the sidebar */
     transition: .3s ease-in;
     overflow: hidden;
-    /* background-color: rgba(0, 0, 0, 0.9); */
+    background-color: rgba(0, 0, 0, 0.9);
+    
 }
-
+/* 
 .header-bg{
     background-color: rgba(0, 0, 0, 0.9);
-}
+} */
 
 .header .navbar {
     display: flex;
