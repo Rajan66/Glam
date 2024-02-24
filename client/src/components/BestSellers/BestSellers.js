@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -41,15 +40,27 @@ const BestSellers = ({ products }) => {
                     modules={[Autoplay, Pagination, Navigation]}
                     className="mySwiper"
                 >
-                    <SwiperSlide>Slide 1</SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                    <SwiperSlide>Slide 5</SwiperSlide>
-                    <SwiperSlide>Slide 6</SwiperSlide>
-                    <SwiperSlide>Slide 7</SwiperSlide>
-                    <SwiperSlide>Slide 8</SwiperSlide>
-                    <SwiperSlide>Slide 9</SwiperSlide>
+                    {
+                        bestSellers.map((product) => (
+                            <SwiperSlide key={product.id}>
+                                <Link to={`/shop/${product.id}`}>
+                                    <img
+                                        src={product.image}
+                                        alt={product.title}
+                                        className="mx-auto w-full hover:scale-105 transition-all duration-300"
+                                    />
+                                </Link>
+                                <div className="mt-4 px-4">
+                                    <h4 className="text-base font-semibold mb-2">{product.title}</h4>
+
+                                    <div className="flex justify-between">
+                                        <p className="text-black/50">{product.category}</p>
+                                        <p className="font-semibold">${product.price}</p>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        ))
+                    }
                 </Swiper>
             </div>
         </div>
