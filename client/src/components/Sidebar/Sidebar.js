@@ -37,8 +37,8 @@ const Sidebar = () => {
             </div>
             <div className='flex flex-col gap-y-3 py-4 mt-4'>
                 <div className='flex w-full justify-between items-center'>
-                    <div className='uppercase font-semibold'>
-                        <span className='mr-2'>Total: </span>Rs. {parseFloat(total).toFixed(2)}
+                    <div className=' font-semibold'>
+                        <span className='mr-2'>Total:</span>Rs. {parseFloat(total).toFixed(2)}
                     </div>
                     <div
                         className='cursor-pointer py-4 bg-red-500

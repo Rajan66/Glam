@@ -6,7 +6,7 @@
     left: 0;
     z-index: 1; /* other values overlaps the sidebar */
     transition: .3s ease-in;
-    overflow: hidden;
+
     background-color: rgba(0, 0, 0, 0.9);
     
 }

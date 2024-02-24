@@ -10,11 +10,16 @@ import Checkout from './components/Checkout/Checkout'
 import About from './components/About/About'
 
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
   return (
     <>
+
       <Router>
+
+        <Sidebar/>
         <Routes>
           <Route path="/" Component={Home} />
           <Route path="/admin" Component={Admin} />

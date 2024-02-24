@@ -28,9 +28,6 @@ const Home = () => {
       {/* <Card products={products} /> (delete Card later) */}
       <Sidebar />
       <Products products={products} />
-      <Link to='/products' >
-        <button>View All</button>
-      </Link>
       <About />
       <Footer />
 
