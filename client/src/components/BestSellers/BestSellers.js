@@ -16,7 +16,7 @@ const BestSellers = ({ products }) => {
     console.log(bestSellers)
 
     return (
-        <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4">
+        <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4 py-16">
             <div className="text-center">
                 <h2 className="text-3xl font-semibold capitalize mb-5">
                     Best Sellers
@@ -64,9 +64,8 @@ const BestSellers = ({ products }) => {
                                         className="mx-auto w-full hover:scale-105 transition-all duration-300"
                                     />
                                 </Link>
-                                <div className="mt-4 px-4">
-                                    <h4 className="text-base font-semibold mb-2">{product.title}</h4>
-
+                                <div className="mt-4 px-4 relative">
+                                    <h4 className="text-base font-semibold mb-2 truncate">{product.title}</h4>
                                     <div className="flex justify-between">
                                         <p className="text-black/50">{product.category}</p>
                                         <p className="font-semibold">Rs. {product.price}</p>
