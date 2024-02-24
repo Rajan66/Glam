@@ -1,23 +1,19 @@
+import React, { useRef, useState } from 'react';
 
-import { useEffect, useRef, useState } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
 const BestSellers = ({ products }) => {
 
-
-
     // console.log(products)
-    const bestSellers = products.filter((item) => item.status === "Best Selers");
+    const bestSellers = products.filter((item) => item.status === "Best Sellers");
     // console.log(bestSellers)
 
     return (
@@ -32,54 +28,28 @@ const BestSellers = ({ products }) => {
             {/* best seller products card */}
             <div className='mb-16'>
                 <Swiper
-                    slidesPerView={1}
-                    spaceBetween={10}
+                    spaceBetween={30}
+                    centeredSlides={true}
                     autoplay={{
-                        delay: 3000,
+                        delay: 2500,
                         disableOnInteraction: false,
                     }}
                     pagination={{
                         clickable: true,
                     }}
-                    breakpoints={{
-                        640: {
-                            slidesPerView: 1,
-                            spaceBetween: 20,
-                        },
-                        768: {
-                            slidesPerView: 3,
-                            spaceBetween: 40,
-                        },
-                        1024: {
-                            slidesPerView: 4,
-                            spaceBetween: 50,
-                        },
-                    }}
                     navigation={true}
                     modules={[Autoplay, Pagination, Navigation]}
                     className="mySwiper"
                 >
-                    {
-                        bestSellers.map((product) => (
-                            <SwiperSlide key={product.id}>
-                                <Link to={`/shop/${product.id}`}>
-                                    <img
-                                        src={product.image}
-                                        alt={product.title}
-                                        className="mx-auto w-full hover:scale-105 transition-all duration-300"
-                                    />
-                                </Link>
-                                <div className="mt-4 px-4">
-                                    <h4 className="text-base font-semibold mb-2">{product.title}</h4>
-
-                                    <div className="flex justify-between">
-                                        <p className="text-black/50">{product.category}</p>
-                                        <p className="font-semibold">${product.price}</p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                        ))
-                    }
+                    <SwiperSlide>Slide 1</SwiperSlide>
+                    <SwiperSlide>Slide 2</SwiperSlide>
+                    <SwiperSlide>Slide 3</SwiperSlide>
+                    <SwiperSlide>Slide 4</SwiperSlide>
+                    <SwiperSlide>Slide 5</SwiperSlide>
+                    <SwiperSlide>Slide 6</SwiperSlide>
+                    <SwiperSlide>Slide 7</SwiperSlide>
+                    <SwiperSlide>Slide 8</SwiperSlide>
+                    <SwiperSlide>Slide 9</SwiperSlide>
                 </Swiper>
             </div>
         </div>
