@@ -7,12 +7,12 @@
     z-index: 9999;
     transition: .3s ease-in;
     overflow: hidden;
-    /* background-color: rgba(0, 0, 0, 0.9); */
-}
-
-.header-bg{
     background-color: rgba(0, 0, 0, 0.9);
 }
+
+/* .header-bg{
+    background-color: rgba(0, 0, 0, 0.9);
+} */
 
 .header .navbar {
     display: flex;
