@@ -46,9 +46,8 @@ const Auth = () => {
       if (foundUser && foundUser.role === 'moderator') {
         setIsAdmin(true);
         window.localStorage.setItem('isAdmin', true);
-      }
-      else {
-        navigate('/'); // Redirect to '/' if the user is not an admin
+      }else{
+        navigate('/')
       }
     }
   }, [users]);
