@@ -1,40 +1,38 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import React, { useContext } from 'react'
+import { useDispatch } from 'react-redux'
+
+import CheckoutItem from './CheckoutItem';
+import { CartContext } from '../Cart/CartContext';
 
 import deliveryIcon from '../../images/icons/delivery-bike.png'
 import pickupIcon from '../../images/icons/cosmetics.png'
 
+
 const Checkout = () => {
-
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  console.log(cartItems)
-  // const cartSize = cartItems.length;
-
+  const dispatch = useDispatch()
+  const { cart, total } = useContext(CartContext)
+  console.log(cart)
 
 
 
-  const handleCheckout = () => {
-
+  const handleOrder = () => {
+    dispatch(createOrder(order))
   }
 
   return (
     <>
-
       <div className="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32">
         <div className="px-4 pt-8">
           <p className="text-xl font-medium">Order Summary</p>
           <p className="text-gray-400">Check your items. And select a suitable shipping method.</p>
           {/* products */}
           <div className="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
-            <div className="flex flex-col rounded-lg bg-white sm:flex-row">
-              <img className="m-2 h-24 w-28 rounded-md border object-cover object-center" src="https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
-              <div className="flex w-full flex-col px-4 py-4">
-                <span className="font-semibold">Nike Air Max Pro 8888 - Super Light</span>
-                <span className="float-right text-gray-400">42EU - 8.5US</span>
-                <p className="text-lg font-bold">$138.99</p>
-              </div>
-            </div>
+
+
+            {cart.map((item) => {
+              return <CheckoutItem item={item} key={item._id} />
+            })}
+
           </div>
 
           {/* shipping methods */}
@@ -134,19 +132,19 @@ const Checkout = () => {
             <div className="mt-6 border-t border-b py-2">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-900">Subtotal</p>
-                <p className="font-semibold text-gray-900">$399.00</p>
+                <p className="font-semibold text-gray-900">Rs. {total}</p>
               </div>
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-900">Shipping</p>
-                <p className="font-semibold text-gray-900">$8.00</p>
+                <p className="font-semibold text-gray-900">Rs. 100.00</p>
               </div>
             </div>
             <div className="mt-6 flex items-center justify-between">
-              <p className="text-sm font-medium text-gray-900">Total</p>
-              <p className="text-2xl font-semibold text-gray-900">$408.00</p>
+              <p className="text-xl font-medium text-gray-900">Total</p>
+              <p className="text-2xl font-semibold text-gray-900">{`Rs. ${parseFloat(total + 100).toFixed(2)}`}</p>
             </div>
           </div>
-          <button className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Proceed to Payment</button>
+          <button className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white" onClick={handleOrder}>Proceed to Payment</button>
         </div>
       </div>
     </>
