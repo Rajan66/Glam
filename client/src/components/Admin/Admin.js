@@ -14,7 +14,6 @@ import "./Sidebar/Sidebar.css"
 const Admin = () => {
     const [currentId, setCurrentId] = useState(0)
     let isAdmin = JSON.parse(window.localStorage.getItem('isAdmin'));
-    console.log(isAdmin)
     const dispatch = useDispatch();
     const navigate = useNavigate()
 

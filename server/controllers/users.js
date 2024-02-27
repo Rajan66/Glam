@@ -22,7 +22,6 @@ const getUser = async (req, res) => {
 
 const createUser = async (req, res) => {
     const user = req.body
-    console.log(user)
     const userExists = await User.findOne({ uid: user.uid })
     if (userExists) {
         console.log({ message: 'User already exists' })

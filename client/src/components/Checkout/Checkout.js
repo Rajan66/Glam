@@ -49,7 +49,6 @@ const Checkout = () => {
         [name]: value
       }
     });
-    console.log(order)
   };
 
   const handleOrder = (e) => {

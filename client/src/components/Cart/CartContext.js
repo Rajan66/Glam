@@ -73,7 +73,6 @@ const CartProvider = ({ children }) => {
     const increaseAmount = (id) => {
         const cartItem = cart.find(item => item._id === id)
         addToCart(cartItem, id)
-        console.log('amount increased')
     }
 
     const decreaseAmount = (id) => {

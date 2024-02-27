@@ -10,7 +10,6 @@ import UpdateIcon from "@mui/icons-material/Edit"
 const User = () => {
   const dispatch = useDispatch()
   const users = useSelector((state) => state.user)
-  console.log(users)
 
   useEffect(() => {
     dispatch(getUsers())

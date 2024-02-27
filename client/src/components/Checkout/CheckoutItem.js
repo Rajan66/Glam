@@ -7,7 +7,6 @@ const CheckoutItem = ({ item }) => {
     const { removeFromCart, increaseAmount, decreaseAmount } = useContext(CartContext)
 
     const { _id, productImage, title, category, price, amount } = item
-    console.log(_id)
 
     return (
         <div className="flex flex-col rounded-lg bg-white sm:flex-row">

@@ -35,7 +35,6 @@ const Auth = () => {
 
     const foundUser = users.find((user) => user?.uid === userCred?.uid)
     if (foundUser && foundUser.role === 'moderator') {
-      console.log(foundUser.role)
       setIsAdmin(true)
       window.localStorage.setItem('isAdmin', true)
     }

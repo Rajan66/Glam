@@ -6,7 +6,6 @@ import OrderItem from './OrderItem';
 const Orders = () => {
   const dispatch = useDispatch()
   const orders = useSelector((state) => state.orders)
-  console.log(orders)
 
   useEffect(() => {
     dispatch(getOrders())

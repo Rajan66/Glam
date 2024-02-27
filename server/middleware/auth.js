@@ -18,11 +18,8 @@ class Middleware {
 
     async checkModerator(req, res, next) {
         const firebaseUID = req.userId
-        console.log(req.userId)
-        console.log(firebaseUID)
         try {
             const user = await User.findOne({ uid: firebaseUID });
-            console.log(user)
             if (user && user.role === 'moderator') {
                 // User is a moderator, allow access to the route
                 next();

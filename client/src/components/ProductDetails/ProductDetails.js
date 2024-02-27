@@ -18,7 +18,6 @@ const ProductDetails = () => {
 
     useEffect(() => {
         dispatch(getProduct(id))
-        console.log(product)
     }, [dispatch, id])
 
     return (

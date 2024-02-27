@@ -10,10 +10,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
 const BestSellers = ({ products }) => {
-
-    console.log(products)
     const bestSellers = products.filter((item) => item.status === "Best Sellers");
-    console.log(bestSellers)
 
     return (
         <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4 py-16">
