@@ -46,8 +46,6 @@ const Auth = () => {
       if (foundUser && foundUser.role === 'moderator') {
         setIsAdmin(true);
         window.localStorage.setItem('isAdmin', true);
-      }else{
-        navigate('/')
       }
     }
   }, [users]);
