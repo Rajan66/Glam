@@ -11,8 +11,8 @@ const Hero = () => {
               <p></p>
               <p>Because Makeup </p>
               <p>Is every woman's need</p>
-              <button className='button' style={{ textDecoration: 'none '}}>
-                <Link to="/Products"> Shop Now</Link>
+              <button className='button' >
+                <Link style={{ textDecoration: 'none ',color:'black'}} to="/Products"> Shop Now</Link>
               </button>
             </div>
         </div>
