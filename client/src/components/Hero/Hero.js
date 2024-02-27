@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './hero.css'
 
 const Hero = () => {
@@ -10,7 +11,9 @@ const Hero = () => {
               <p></p>
               <p>Because Makeup </p>
               <p>Is every woman's need</p>
-              <button href='#' className='button'>Shop Now</button>
+              <button className='button' style={{ textDecoration: 'none '}}>
+                <Link to="/Products"> Shop Now</Link>
+              </button>
             </div>
         </div>
       )

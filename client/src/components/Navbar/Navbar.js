@@ -17,7 +17,7 @@ import { BsBag } from 'react-icons/bs'
 
 import { Link } from 'react-scroll'
 
-import logo from '../../images/logo.png'
+import logo from '../../images/logo1.png'
 
 import './styles.css'
 
@@ -26,6 +26,14 @@ const Navbar = () => {
   const { itemAmount } = useContext(CartContext)
 
   const navigate = useNavigate()
+
+  // nav items?
+  const navItems = [
+    {title: "Eye Makeup", path: "/"},
+    {title: "Lip Makeup", path: "/"},
+    {title: "Face Makeup", path: "/"},
+    {title: "Body Makeup", path: "/"},
+  ]
 
   const [auth, setAuth] = useState(false || window.localStorage.getItem('auth') === true)
   const [isAdmin, setIsAdmin] = useState(false || window.localStorage.getItem('isAdmin') === true)
@@ -71,20 +79,22 @@ const Navbar = () => {
   const closeMenu = () => setClick(false)
   return (
     <>
-      <div className={color ? 'header header-bg' : 'header'}>
-        <nav className='navbar'>
-          <Link href='#' className='logo'>
-            <img src= {logo} alt='logo' />
+      <header className={color ? 'header header-bg' : 'header'}>
+        {/* <nav className='navbar'> */}
+        <nav className='flex justify-between  container md:py-1 pt-6 pb-0'>
+          <Link to='/' className='logo'>
+            <img src={logo} alt='logo' />
           </Link>
           <div className='ham' onClick={handleClick}>
             {click ? (<FaTimes size={30} style={{ color: '#fff' }} />)
               : (<FaBars size={30} style={{ color: '#fff' }} />)}
           </div>
+          <div className='text-lg text-black sm:flex gap-4'>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className='nav-item'>
+            <li className='nav-item cursor-pointer'>
               <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} onClick={closeMenu}>Home</Link>
             </li>
-            <li className='nav-item'>
+            <li className='nav-item cursor-pointer'>
               <Link to="about" spy={true} offset={-100} duration={500} onClick={closeMenu}>About</Link>
             </li>
             <li className='nav-item'>
@@ -101,15 +111,29 @@ const Navbar = () => {
                 <Button className='nav-item' onClick={handleLogout} variant='outlined'>
                   Log out
                 </Button>
-                ) : (
+              ) : (
                 <Button className='nav-item' onClick={handleLogin} variant='outlined' >
                   Log in
                 </Button>
               )}
             </li>
           </ul>
+          </div>
         </nav>
-      </div >
+        <hr className='hr'/>
+        <div className='pt-0'>
+          <ul className='lg:flex items-center justify-between container text-black hidden'>
+            {
+              navItems.map(({title,path})=>(
+                <li key={title} className='hover:text-pink-500'>
+                  <Link to="/">{title}</Link>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div className="background-image"></div>
+      </header >
     </>
   )
 }

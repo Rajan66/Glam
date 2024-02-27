@@ -9,12 +9,13 @@ import About from '../About/About'
 
 import { getProducts } from '../../actions/products';
 import Sidebar from '../Sidebar/Sidebar';
+import { Link } from 'react-router-dom';
+import BestSellers from '../BestSellers/BestSellers';
 
 
 const Home = () => {
   const products = useSelector((state) => state.products)
   const dispatch = useDispatch()
-  const [currentId, setCurrentId] = useState(0);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -24,14 +25,10 @@ const Home = () => {
     <div>
       <Navbar />
       <Hero />
-   
-      {/* <Card products={products} /> */}
-      <Sidebar />
       <Products products={products} />
       <About />
+      <BestSellers products={products}/>
       <Footer />
-      
-
     </div>
   )
 }

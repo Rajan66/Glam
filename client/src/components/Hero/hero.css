@@ -1,7 +1,8 @@
 .hero{
     background-color: var(--overlay);
     color: #fff;
-    height: 100vh;
+    margin-top: 150px;
+    height: 78vh;
     width: 100%;
     position: relative;
 }
@@ -19,7 +20,7 @@
 
 /* agadi html bata nachahiyera hatako vaye u yo tala ko ni hataedeu la pachuu */
 .hero .content{
-    height: 100%;
+    height: 125%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,7 +48,7 @@
     font-style: italic;
 }
 
-.hero .button{
+.hero .button {
     margin: 1rem 0;
     width: 300px;
     background-color: var(--secondary-color);

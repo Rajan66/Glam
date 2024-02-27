@@ -1,50 +1,47 @@
-import React from 'react'
-import './Card.css'
-import { Button, Grid, IconButton } from '@mui/material'
-import Cart from '@mui/icons-material/ShoppingBag'
-import { useDispatch } from 'react-redux'
-import { addToCart } from '../../actions/cart'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 
-const Card = ({ products }) => {
-    // store 5-8 random products in a array and display in the featured products
+import { BsPlus, BsEyeFill } from 'react-icons/bs'
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate()
+import { CartContext } from '../Cart/CartContext'
 
+const Card = ({ filteredItems }) => {
+    const { addToCart } = useContext(CartContext)
     return (
-        <div className='cards'>
-            <div className='container'>
-                <h2>Featured Products</h2>
-                <span className='line'></span>
-                <div className='content'>
-                    {products.map((product) => (
-                        <Grid key={product._id} item>
-                            <div className='card'>
-                                <Link to={`/product/${product._id}`}>
-                                    <img src={product.productImage} width="100%" height="100%" />
-                                </Link>
-                                <p>{product.title}</p>
-                                <p><span>{product.tags}</span></p>
-
-                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <p>{product.price}</p>
-                                    <IconButton onClick={() => dispatch(addToCart(product))}>
-                                        <Cart />
-                                    </IconButton>
+        <section className='py-16'>
+            <div className="container mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0">
+                    {filteredItems.slice(0, 8).map((item) => (
+                        <div key={item._id}>
+                            <div className='border border-[#e4e4e4] h-[350px] mb-4 relative overflow-hidden group transition'>
+                                <div className='w-full h-[full] flex justify-center items-center'>
+                                    <div className="w-[280px] py-4 mx-auto flex justify-center items-center">
+                                        <Link to={`/product/${item._id}`}>
+                                            <img className='max-h-[360px] group-hover:scale-110 transition duration-300' src={item.productImage} alt={item.title} />
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div className='absolute top-1 -right-14 group-hover:right-1 p-2 flex flex-col items-center justify-center gap-y-2  group-hover:opacity-100 transition-all duration-300 '>
+                                    <button onClick={() => addToCart(item, item._id)}>
+                                        <div className='flex justify-center items-center text-white w-12 h-12 bg-red-500'>
+                                            <BsPlus className='text-3xl' />
+                                        </div>
+                                    </button>
+                                    <Link to={`/product/${item._id}`} className='w-12 h-12 bg-white flex justify-center items-center text-black drop-shadow-xl'>
+                                        <BsEyeFill />
+                                    </Link>
                                 </div>
                             </div>
-                        </Grid>
+                            <div>
+                                <div className='text-md capitalize text-gray-500 mb-1'>{item.category}</div>
+                                <Link to={`/product/${item._id}`} style={{ textDecoration: 'none' }}><h4 className='font-semibold mb-1 text-black'>{item.title}</h4></Link>
+                                <div className='font-semibold'>$ {item.price}</div>
+                            </div>
+                        </div>
                     ))}
-                    <Button onClick={()=>navigate(`/products`)}>
-                        View All
-                    </Button>
                 </div>
             </div>
-        </div>
-    )
-
-
-}
-
+        </section>
+    );
+};
 export default Card
