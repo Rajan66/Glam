@@ -21,7 +21,7 @@ const Checkout = () => {
       {
         productId: '',
         title: '',
-        quantity: 0 // Set initial quantity to 0
+        quantity: 0
       },
     ],
     totalPrice: '',
@@ -53,17 +53,16 @@ const Checkout = () => {
   };
 
   const handleOrder = (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
-  
     const { name, address, city, state } = order.shippingAddress;
     if (!name || !address || !city || !state) {
       alert('Please fill out all required fields.');
-      return; 
+      return;
     }
     dispatch(createOrder(order))
     clearCart()
-    navigate('/')
+    navigate('/') // navigate to payment gateway
   }
 
   return (
