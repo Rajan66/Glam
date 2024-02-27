@@ -6,39 +6,58 @@ import { createUser, getUsers } from '../../actions/user'
 import { useDispatch, useSelector } from 'react-redux'
 import Login from './Login'
 
-
 const Auth = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
-  const [isAdmin, setIsAdmin] = useState(false || window.localStorage.getItem('isAdmin') === true)
-  const [auth, setAuth] = useState(false || window.localStorage.getItem('auth') === true)
-  const [token, setToken] = useState('')
   const users = useSelector((state) => state.user)
+  
+  const [auth, setAuth] = useState(() => {
+    const storedAuth = window.localStorage.getItem('auth');
+    return storedAuth ? JSON.parse(storedAuth) : false;
+  });
+
+  const [token, setToken] = useState('')
+  const [isAdmin, setIsAdmin] = useState(() => {
+    const storedIsAdmin = window.localStorage.getItem('isAdmin');
+    return storedIsAdmin ? JSON.parse(storedIsAdmin) : false;
+  });
 
   useEffect(() => {
-
-
     firebase.auth().onAuthStateChanged((userCred) => {
       if (userCred) {
         setAuth(true)
-        checkModerator(userCred)
-        window.localStorage.setItem('auth', true)
         userCred.getIdToken()
           .then((token) => setToken(token))
+        dispatch(getUsers())
       }
     })
-    dispatch(getUsers())
-  }, [dispatch, auth, isAdmin])
+  }, [])
 
-  const checkModerator = (userCred) => {
-
-    const foundUser = users.find((user) => user?.uid === userCred?.uid)
-    if (foundUser && foundUser.role === 'moderator') {
-      setIsAdmin(true)
-      window.localStorage.setItem('isAdmin', true)
+  useEffect(() => {
+    if (auth) {
+      dispatch(getUsers())
     }
-  }
+  }, [auth])
+
+  useEffect(() => {
+    if (users.length > 0) {
+      const currentUser = firebase.auth().currentUser;
+      const foundUser = users.find((user) => user?.uid === currentUser?.uid)
+      if (foundUser && foundUser.role === 'moderator') {
+        setIsAdmin(true);
+        window.localStorage.setItem('isAdmin', true);
+      }
+      else {
+        navigate('/'); // Redirect to '/' if the user is not an admin
+      }
+    }
+  }, [users]);
+
+  useEffect(() => {
+    if (isAdmin) {
+      navigate('/admin')
+    }
+  }, [isAdmin])
 
   const handleFirebaseSignUp = () => {
     const currentUser = firebase.auth().currentUser;
@@ -56,9 +75,7 @@ const Auth = () => {
         if (userCred) {
           setAuth(true)
           window.localStorage.setItem('auth', true)
-          checkModerator(userCred)
           handleFirebaseSignUp()
-          navigate('/')
         }
       })
       .catch((error) => console.log(error.message))

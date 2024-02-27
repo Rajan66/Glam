@@ -29,17 +29,21 @@ const Navbar = () => {
 
   // nav items?
   const navItems = [
-    {title: "Eye Makeup", path: "/"},
-    {title: "Lip Makeup", path: "/"},
-    {title: "Face Makeup", path: "/"},
-    {title: "Body Makeup", path: "/"},
+    { title: "Eye Makeup", path: "/" },
+    { title: "Lip Makeup", path: "/" },
+    { title: "Face Makeup", path: "/" },
+    { title: "Body Makeup", path: "/" },
   ]
 
-  const [auth, setAuth] = useState(false || window.localStorage.getItem('auth') === true)
-  const [isAdmin, setIsAdmin] = useState(false || window.localStorage.getItem('isAdmin') === true)
+  const [auth, setAuth] = useState(() => {
+    const storedAuth = window.localStorage.getItem('auth');
+    return storedAuth ? JSON.parse(storedAuth) : false;
+  });
+  const [isAdmin, setIsAdmin] = useState(() => {
+    const storedAuth = window.localStorage.getItem('isAdmin');
+    return storedAuth ? JSON.parse(storedAuth) : false;
+  });
 
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  const cartSize = cartItems.length;
 
   //setting mobile nav
   const [click, setClick] = useState(false)
@@ -90,41 +94,41 @@ const Navbar = () => {
               : (<FaBars size={30} style={{ color: '#fff' }} />)}
           </div>
           <div className='text-lg text-black sm:flex gap-4'>
-          <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className='nav-item cursor-pointer'>
-              <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} onClick={closeMenu}>Home</Link>
-            </li>
-            <li className='nav-item cursor-pointer'>
-              <Link to="about" spy={true} offset={-100} duration={500} onClick={closeMenu}>About</Link>
-            </li>
-            <li className='nav-item'>
-              <div onClick={() => setIsOpen(!isOpen)}
-                className='cursor-pointer flex relative sm:justify-center items-center'>
-                <BsBag className='text-2xl text-white' />
-                <div className='bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px]
-                  text-white rounded-full flex justify-center items-center'>{itemAmount}
+            <ul className={click ? "nav-menu active" : "nav-menu"}>
+              <li className='nav-item cursor-pointer'>
+                <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} onClick={closeMenu}>Home</Link>
+              </li>
+              <li className='nav-item cursor-pointer'>
+                <Link to="about" spy={true} offset={-100} duration={500} onClick={closeMenu}>About</Link>
+              </li>
+              <li className='nav-item'>
+                <div onClick={() => setIsOpen(!isOpen)}
+                  className='cursor-pointer flex relative sm:justify-center items-center'>
+                  <BsBag className='text-2xl text-white' />
+                  <div className='bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px]
+                    text-white rounded-full flex justify-center items-center'>{itemAmount}
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li>
-              {auth ? (
-                <Button className='nav-item' onClick={handleLogout} variant='outlined'>
-                  Log out
-                </Button>
-              ) : (
-                <Button className='nav-item' onClick={handleLogin} variant='outlined' >
-                  Log in
-                </Button>
-              )}
-            </li>
-          </ul>
+              </li>
+              <li>
+                {auth ? (
+                  <Button className='nav-item' onClick={handleLogout} variant='outlined'>
+                    Log out
+                  </Button>
+                ) : (
+                  <Button className='nav-item' onClick={handleLogin} variant='outlined' >
+                    Log in
+                  </Button>
+                )}
+              </li>
+            </ul>
           </div>
         </nav>
-        <hr className='hr'/>
+        <hr className='hr' />
         <div className='pt-0'>
           <ul className='lg:flex items-center justify-between container text-black hidden'>
             {
-              navItems.map(({title,path})=>(
+              navItems.map(({ title, path }) => (
                 <li key={title} className='hover:text-pink-500'>
                   <Link to="/">{title}</Link>
                 </li>
