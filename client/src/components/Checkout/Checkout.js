@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext,useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import CheckoutItem from './CheckoutItem';
@@ -11,12 +11,45 @@ import pickupIcon from '../../images/icons/cosmetics.png'
 const Checkout = () => {
   const dispatch = useDispatch()
   const { cart, total } = useContext(CartContext)
-  console.log(cart)
+
+  const [order, setOrder] = useState({
+    products: [
+      {
+        productId: '',
+        title: '',
+        quantity: 0 // Set initial quantity to 0
+      },
+    ],
+    totalPrice: '',
+    shippingAddress: {
+      name: '',
+      address: '',
+      city: '',
+      state: ''
+    }
+  });
 
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setOrder({
+      ...order,
+      products: cart.map(item => ({
+        productId: item._id,
+        title: item.title,
+        quantity: item.amount
+      })),
+      totalPrice: total + 100,
+      shippingAddress: {
+        ...order.shippingAddress,
+        [name]: value
+      }
+    });
+    console.log(order)
+  };
 
   const handleOrder = () => {
-    dispatch(createOrder(order))
+    // dispatch(createOrder(order))
   }
 
   return (
@@ -75,6 +108,8 @@ const Checkout = () => {
                 name="email"
                 className="w-full rounded-md border border-gray-200 px-3 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="your.email@gmail.com"
+                value={order.shippingAddress.email}
+                onChange={handleChange}
               />
               <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
               </div>
@@ -89,6 +124,8 @@ const Checkout = () => {
                 className="w-full rounded-md border 
                border-gray-200 px-3 py-3 pl-11 text-sm  shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="Your full name"
+                value={order.shippingAddress.name}
+                onChange={handleChange}
               />
             </div>
 
@@ -100,6 +137,8 @@ const Checkout = () => {
                 className="w-full rounded-md border
                border-gray-200 px-3 py-3 pl-11 text-sm  shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="Your address"
+                value={order.shippingAddress.address}
+                onChange={handleChange}
               />
             </div>
 
@@ -113,6 +152,8 @@ const Checkout = () => {
                 className="w-full rounded-md border
                border-gray-200 px-3 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="Your city name"
+                value={order.shippingAddress.city}
+                onChange={handleChange}
               />
             </div>
 
@@ -125,6 +166,8 @@ const Checkout = () => {
                 className="w-full rounded-md border
                border-gray-200 px-3 py-3 pl-11 text-sm  shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="Your state"
+                value={order.shippingAddress.state}
+                onChange={handleChange}
               />
             </div>
 

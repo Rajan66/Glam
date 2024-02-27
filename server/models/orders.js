@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const productSchema = new mongoose.Schema({
     productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
+    title: String,
     quantity: Number,
 }, { _id: false });
 
@@ -11,6 +12,7 @@ const orderSchema = mongoose.Schema({
     totalPrice: { type: Number },
     shippingAddress: {
         name: String,
+        email: String,
         address: String,
         city: String,
         state: String,
