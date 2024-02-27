@@ -47,7 +47,8 @@ const Sidebar = () => {
                     </div>
                 </div>
                 <Link
-                    to=''
+                    onClick={handleClose}
+                    to='/checkout'
                     style={{ textDecoration: 'none' }}
                     className='bg-blue-50 flex p-4 justify-center items-center text-black w-full font-medium'>Checkout</Link>
             </div>

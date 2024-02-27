@@ -1,8 +1,11 @@
-import React, { useContext,useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 
 import CheckoutItem from './CheckoutItem';
 import { CartContext } from '../Cart/CartContext';
+
+import { createOrder } from '../../actions/order';
 
 import deliveryIcon from '../../images/icons/delivery-bike.png'
 import pickupIcon from '../../images/icons/cosmetics.png'
@@ -10,7 +13,8 @@ import pickupIcon from '../../images/icons/cosmetics.png'
 
 const Checkout = () => {
   const dispatch = useDispatch()
-  const { cart, total } = useContext(CartContext)
+  const navigate = useNavigate()
+  const { cart, total, clearCart } = useContext(CartContext)
 
   const [order, setOrder] = useState({
     products: [
@@ -48,8 +52,18 @@ const Checkout = () => {
     console.log(order)
   };
 
-  const handleOrder = () => {
-    // dispatch(createOrder(order))
+  const handleOrder = (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+  
+    const { name, address, city, state } = order.shippingAddress;
+    if (!name || !address || !city || !state) {
+      alert('Please fill out all required fields.');
+      return; 
+    }
+    dispatch(createOrder(order))
+    clearCart()
+    navigate('/')
   }
 
   return (
@@ -118,6 +132,7 @@ const Checkout = () => {
             <label for="name" className="mt-4 mb-2 block text-sm font-medium">Full Name</label>
             <div className="relative">
               <input
+                required
                 type="text"
                 id="name"
                 name="name"
@@ -131,7 +146,9 @@ const Checkout = () => {
 
             <label for="address" className="mt-4 mb-2 block text-sm font-medium">Address</label>
             <div className="relative">
-              <input type="text"
+              <input
+                type="text"
+                required
                 id="address"
                 name="address"
                 className="w-full rounded-md border
@@ -146,6 +163,7 @@ const Checkout = () => {
             <label for="city" className="mt-4 mb-2 block text-sm font-medium">City</label>
             <div className="relative">
               <input
+                required
                 type="text"
                 id="city"
                 name="city"
@@ -160,7 +178,9 @@ const Checkout = () => {
 
             <label for="state" className="mt-4 mb-2 block text-sm font-medium">State</label>
             <div className="relative">
-              <input type="text"
+              <input
+                required
+                type="text"
                 id="state"
                 name="state"
                 className="w-full rounded-md border
