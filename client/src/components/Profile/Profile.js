@@ -87,7 +87,7 @@ const Profile = () => {
                 <>
                     < Navbar />
                     <div className="h-screen flex items-center justify-center">
-                        <div className='flex bg-zinc-50 w-1/2 h-1/2 mb-20'>
+                        <div className='flex bg-zinc-50 w-full h-full'>
                             <div className="bg-gray-800 text-white h-full w-64">
                                 <div className="p-4 cursor-pointer" onClick={handleAccountClick}>
                                     Your Account
