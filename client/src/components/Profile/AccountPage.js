@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-const AccountPage = () => {
-    
+
+const AccountPage = ({ user }) => {
+
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (!user) {
+            setLoading(true);
+        }else{
+            setLoading(false)
+        }
+    }, [user])
+
+
+
+    if (loading) {
+        return <div>Loading...</div>; // Show loading screen while data is being fetched
+    }
 
     return (
         <div className="container mx-auto">
@@ -17,7 +33,7 @@ const AccountPage = () => {
                             name="email"
                             className="w-full rounded-md border border-gray-200 px-3 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                             placeholder="your.email@gmail.com"
-                            // value={productData.title} onChange={(e) => setProductData({ ...productData, title: e.target.value })}
+                            value={user.email}
                         />
 
                     </div>
@@ -30,6 +46,7 @@ const AccountPage = () => {
                             name="name"
                             className="w-full rounded-md border border-gray-200 px-3 py-3 pl-11 text-sm  shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                             placeholder="Your full name"
+                            value={user.name}
                         />
                     </div>
                     <label for="name" className="mt-4 mb-2 block text-sm font-medium">Contact No.</label>
@@ -41,6 +58,7 @@ const AccountPage = () => {
                             name="phone"
                             className="w-full rounded-md border border-gray-200 px-3 py-3 pl-11 text-sm  shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                             placeholder="Your contact number"
+                            value={user.contact}
                         />
                     </div>
                 </div>

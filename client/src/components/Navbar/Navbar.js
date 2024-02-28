@@ -72,7 +72,7 @@ const Navbar = () => {
       <header className={color ? 'header header-bg' : 'header'}>
         {/* <nav className='navbar'> */}
         <nav className='flex justify-between items-center md:py-1 pt-6 pb-0 pr-20 pl-10'>
-          <a to='/' className='logo'>
+          <a href='/' className='logo'>
             <img src={logo} alt='logo' />
           </a>
           <div className='ham' onClick={handleClick}>
@@ -105,7 +105,7 @@ const Navbar = () => {
                     </a>
                   </>
                 ) : (
-                  <Button  onClick={handleLogin} variant='outlined' >
+                  <Button onClick={handleLogin} variant='outlined' >
                     Log in
                   </Button>
                 )}

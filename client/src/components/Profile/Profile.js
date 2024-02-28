@@ -12,31 +12,12 @@ import { getUserOrders } from '../../actions/order';
 
 
 const MainContent = ({ activeContent }) => {
-    return (
-        <div className="flex-grow bg-gray-200 p-8">
-            {activeContent === 'account' && <AccountPage />}
-            {activeContent === 'order' && <OrderHistory />}
-            {activeContent === 'logout' && <div>This is the logout page</div>}
-        </div>
-    );
-};
-
-const Profile = () => {
-    const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const users = useSelector((state) => state.user)
     const orders = useSelector((state) => state.orders)
     console.log(orders)
     const [user, setUser] = useState()
-
-    const [auth, setAuth] = useState(() => {
-        const storedAuth = window.localStorage.getItem('auth');
-        return storedAuth ? JSON.parse(storedAuth) : false;
-    });
-
-    const [activeContent, setActiveContent] = useState('account');
-
 
     useEffect(() => {
         dispatch(getUsers())
@@ -57,6 +38,26 @@ const Profile = () => {
         }
         console.log(user)
     }, [users]);
+
+    return (
+        <div className="flex-grow bg-gray-200 p-8">
+            {activeContent === 'account' && <AccountPage user={user} />}
+            {activeContent === 'order' && <OrderHistory orders={orders} />}
+            {activeContent === 'logout' && <div>This is the logout page</div>}
+        </div>
+    );
+};
+
+const Profile = () => {
+    const navigate = useNavigate()
+
+
+    const [auth, setAuth] = useState(() => {
+        const storedAuth = window.localStorage.getItem('auth');
+        return storedAuth ? JSON.parse(storedAuth) : false;
+    });
+
+    const [activeContent, setActiveContent] = useState('account');
 
 
 
@@ -80,14 +81,13 @@ const Profile = () => {
             .catch((error) => console.error(error.message));
     };
 
-
     return (
         <>
             {auth ? (
                 <>
                     < Navbar />
                     <div className="h-screen flex items-center justify-center">
-                        <div className='flex bg-zinc-50 w-1/2 h-1/2 '>
+                        <div className='flex bg-zinc-50 w-1/2 h-1/2 mb-20'>
                             <div className="bg-gray-800 text-white h-full w-64">
                                 <div className="p-4 cursor-pointer" onClick={handleAccountClick}>
                                     Your Account
