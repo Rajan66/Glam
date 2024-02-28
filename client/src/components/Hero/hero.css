@@ -1,8 +1,8 @@
 .hero{
     background-color: var(--overlay);
     color: #fff;
-    margin-top: 150px;
-    height: 78vh;
+    margin-top: 30px;
+    height: 90vh;
     width: 100%;
     position: relative;
 }
@@ -20,7 +20,7 @@
 
 /* agadi html bata nachahiyera hatako vaye u yo tala ko ni hataedeu la pachuu */
 .hero .content{
-    height: 125%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

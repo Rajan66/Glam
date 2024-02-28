@@ -83,9 +83,10 @@ const Navbar = () => {
   const closeMenu = () => setClick(false)
   return (
     <>
-      <header className={color ? 'header header-bg' : 'header'}>
+      <header className={color ? 'header header-bg' : 'header'}> 
+      {/* // {color ? 'header header-bg' : 'header'} */}
         {/* <nav className='navbar'> */}
-        <nav className='flex justify-between  container md:py-1 pt-6 pb-0'>
+        <nav className='flex justify-between items-center md:py-1 pt-6 pb-0 pr-6'>
           <Link to='/' className='logo'>
             <img src={logo} alt='logo' />
           </Link>
@@ -104,7 +105,7 @@ const Navbar = () => {
               <li className='nav-item'>
                 <div onClick={() => setIsOpen(!isOpen)}
                   className='cursor-pointer flex relative sm:justify-center items-center'>
-                  <BsBag className='text-2xl text-white' />
+                  <BsBag className='text-2xl text-black' />
                   <div className='bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px]
                     text-white rounded-full flex justify-center items-center'>{itemAmount}
                   </div>
@@ -125,19 +126,21 @@ const Navbar = () => {
           </div>
         </nav>
         <hr className='hr' />
+      <div className='down'>
         <div className='pt-0'>
-          <ul className='lg:flex items-center justify-between container text-black hidden'>
+          <ul className='lg:flex items-center justify-between text-black container hidden'>
             {
               navItems.map(({ title, path }) => (
-                <li key={title} className='hover:text-pink-500'>
+                <li key={title}>
                   <Link to="/">{title}</Link>
                 </li>
               ))
             }
           </ul>
         </div>
-        <div className="background-image"></div>
+        </div>  
       </header >
+      
     </>
   )
 }
