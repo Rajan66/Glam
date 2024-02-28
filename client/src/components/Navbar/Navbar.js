@@ -61,17 +61,7 @@ const Navbar = () => {
 
   window.addEventListener('scroll', changeColor)
 
-  const handleLogout = () => {
-    const auth = firebase.auth();
-    setAuth(true)
-    auth.signOut()
-      .then(() => {
-        window.localStorage.setItem('auth', 'false')
-        window.localStorage.setItem('isAdmin', 'false')
-        navigate('/auth');
-      })
-      .catch((error) => console.error(error.message));
-  };
+
   const handleLogin = () => {
     navigate('/auth')
   };
@@ -108,16 +98,15 @@ const Navbar = () => {
                 </div>
               </li>
 
-              <li>
+              <li className='nav-item'>
                 {auth ? (
                   <>
-                    <a className='nav-item' href='/profile'>
-
+                    <a href='/profile'>
                       <BsPersonFill className='text-3xl text-black cursor-pointer' />
                     </a>
                   </>
                 ) : (
-                  <Button className='nav-item' onClick={handleLogin} variant='outlined' >
+                  <Button  onClick={handleLogin} variant='outlined' >
                     Log in
                   </Button>
                 )}

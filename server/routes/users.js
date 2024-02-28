@@ -1,10 +1,10 @@
 const express = require("express")
-const { createUser, getUsers } = require('../controllers/users')
+const { createUser, getUsers,getUser } = require('../controllers/users')
 
 const router = express.Router()
 
 router.get('/', getUsers)
-// router.get('/:id', getUser)
+router.get('/:id', getUser)
 
 router.post('/', createUser)
 

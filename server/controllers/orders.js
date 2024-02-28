@@ -43,5 +43,7 @@ const createOrder = async (req, res) => {
 module.exports = {
     getOrders,
     getOrder,
-    createOrder
+    createOrder,
+    getUserOrders
+
 }

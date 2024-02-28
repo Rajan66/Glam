@@ -10,7 +10,7 @@ const Auth = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const users = useSelector((state) => state.user)
-  
+
   const [auth, setAuth] = useState(() => {
     const storedAuth = window.localStorage.getItem('auth');
     return storedAuth ? JSON.parse(storedAuth) : false;
@@ -43,9 +43,11 @@ const Auth = () => {
     if (users.length > 0) {
       const currentUser = firebase.auth().currentUser;
       const foundUser = users.find((user) => user?.uid === currentUser?.uid)
-      if (foundUser && foundUser.role === 'moderator') {
+      if (foundUser.role === 'moderator') {
         setIsAdmin(true);
         window.localStorage.setItem('isAdmin', true);
+      }else{
+        navigate('/')
       }
     }
   }, [users]);
