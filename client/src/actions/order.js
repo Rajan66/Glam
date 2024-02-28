@@ -14,6 +14,7 @@ export const getOrders = () => async (dispatch) => {
 export const getUserOrders = (id) => async (dispatch) => {
     try {
         const { data } = await api.fetchUserOrders(id)
+        console.log(data)
         dispatch({ type: FETCH_USER_ORDERS, payload: data })
 
     } catch (error) {

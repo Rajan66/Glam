@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
@@ -7,25 +7,66 @@ import 'firebase/compat/auth'
 import Navbar from '../Navbar/Navbar';
 import OrderHistory from './OrderHistory';
 import AccountPage from './AccountPage';
+import { getUsers } from '../../actions/user';
+import { getUserOrders } from '../../actions/order';
+
 
 const MainContent = ({ activeContent }) => {
     return (
         <div className="flex-grow bg-gray-200 p-8">
-            {activeContent === 'account' && <AccountPage/>}
-            {activeContent === 'order' && <OrderHistory/>}
+            {activeContent === 'account' && <AccountPage />}
+            {activeContent === 'order' && <OrderHistory />}
             {activeContent === 'logout' && <div>This is the logout page</div>}
         </div>
     );
 };
 
 const Profile = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const users = useSelector((state) => state.user)
+    const orders = useSelector((state) => state.orders)
+    console.log(orders)
+    const [user, setUser] = useState()
+
     const [auth, setAuth] = useState(() => {
         const storedAuth = window.localStorage.getItem('auth');
         return storedAuth ? JSON.parse(storedAuth) : false;
     });
-    const navigate = useNavigate()
 
-    const dispatch = useDispatch()
+    const [activeContent, setActiveContent] = useState('account');
+
+
+    useEffect(() => {
+        dispatch(getUsers())
+
+    }, [])
+
+    useEffect(() => {
+        if (user) {
+            dispatch(getUserOrders(user._id))
+        }
+    }, [user])
+
+    useEffect(() => {
+        if (users.length > 0) {
+            const currentUser = firebase.auth().currentUser;
+            const foundUser = users.find((user) => user?.uid === currentUser?.uid)
+            setUser(foundUser)
+        }
+        console.log(user)
+    }, [users]);
+
+
+
+    const handleAccountClick = () => {
+        setActiveContent('account');
+    };
+
+    const handleOrderClick = () => {
+        setActiveContent('order');
+    };
 
     const handleLogout = () => {
         const auth = firebase.auth();
@@ -39,15 +80,6 @@ const Profile = () => {
             .catch((error) => console.error(error.message));
     };
 
-    const [activeContent, setActiveContent] = useState('account');
-
-    const handleAccountClick = () => {
-        setActiveContent('account');
-    };
-
-    const handleOrderClick = () => {
-        setActiveContent('order');
-    };
 
     return (
         <>

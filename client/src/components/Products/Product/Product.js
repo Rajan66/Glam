@@ -11,8 +11,8 @@ import '../styles.css'
 const Product = ({ product }) => {
   const { addToCart } = useContext(CartContext)
 
-  const dispatch = useDispatch()
   const { _id, productImage, title, category, price } = product
+ 
 
   return (
     <div>

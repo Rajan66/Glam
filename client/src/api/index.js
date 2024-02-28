@@ -47,7 +47,7 @@ export const updateProduct = (id, updatedProduct) => API.patch(`/products/${id}`
 export const deleteProduct = (id) => API.delete(`/products/${id}`)
 
 export const fetchUsers = () => API.get('/users')
-export const fetchUser = (id) => API.get(`/users/${id}`)
+// export const fetchUser = (id) => API.get(`/users/${id}`)
 export const createUser = (newUser) => API.post(`/users`, newUser)
 
 

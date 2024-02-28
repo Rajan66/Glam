@@ -16,12 +16,20 @@ const ProductDetails = () => {
     const dispatch = useDispatch()
     const product = useSelector((state) => state.products.find(item => item._id === id));
 
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        setLoading(true); // Set loading to true when starting to fetch data
         dispatch(getProduct(id))
-        window.scrollTo({top:0, behavior:'smooth'})
+            .then(() => setLoading(false)) // Set loading to false when data is fetched
+            .catch(() => setLoading(false)); // In case of an error, set loading to false as well
     }, [dispatch, id])
+        window.scrollTo({top:0, behavior:'smooth'})
+    
 
+    if (loading) {
+        return <div>Loading...</div>; // Show loading screen while data is being fetched
+    }
     return (
         <>
         <Navbar />
@@ -63,6 +71,7 @@ const ProductDetails = () => {
                                                 <span> Add to Cart</span>
                                         </button>
                                     </div>
+
                                 </div>
                                 {/* <p className="text-green-600 dark:text-green-300 ">7 in stock</p> */}
                             </div>
@@ -80,5 +89,4 @@ const ProductDetails = () => {
         </>
     )
 }
-
 export default ProductDetails
