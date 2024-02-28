@@ -27,6 +27,9 @@ const Home = () => {
       <About />
       <BestSellers products={products} />
       <Newsletter />
+      
+
+
       <section className='bg-black sm:px-16 px-8 sm:pt-24 pt-12 pb-8'>
         <Footer />
       </section>

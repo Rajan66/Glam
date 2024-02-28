@@ -1,22 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
-
-import { FaBars, FaTimes } from 'react-icons/fa'
-import { Button } from '@mui/material'
-
-import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-
-import { SidebarContext } from '../Sidebar/SidebarContext'
-
-import { CartContext } from '../Cart/CartContext'
-
-import { BsBag } from 'react-icons/bs'
-// import { Link } from 'react-router-dom'
-
 import { Link } from 'react-scroll'
 
+
+import { SidebarContext } from '../Sidebar/SidebarContext'
+import { CartContext } from '../Cart/CartContext'
+
+import { BsPersonFill } from 'react-icons/bs'
+import { FaBars, FaTimes } from 'react-icons/fa'
+import { Button } from '@mui/material'
+import { BsBag } from 'react-icons/bs'
 import logo from '../../images/logo1.png'
 
 import './styles.css'
@@ -110,17 +106,22 @@ const Navbar = () => {
                   </div>
                 </div>
               </li>
+
               <li>
                 {auth ? (
-                  <Button className='nav-item' onClick={handleLogout} variant='outlined'>
-                    Log out
-                  </Button>
+                  <>
+                    <a className='nav-item' href='/profile'>
+
+                      <BsPersonFill className='text-3xl text-black cursor-pointer' />
+                    </a>
+                  </>
                 ) : (
                   <Button className='nav-item' onClick={handleLogin} variant='outlined' >
                     Log in
                   </Button>
                 )}
               </li>
+
             </ul>
           </div>
         </nav>
@@ -138,6 +139,7 @@ const Navbar = () => {
         </div>
         <div className="background-image"></div>
       </header >
+
     </>
   )
 }
