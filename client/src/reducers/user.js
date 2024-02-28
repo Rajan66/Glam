@@ -1,4 +1,4 @@
-import { FETCH_USERS, CREATE, UPDATEROLE, DELETE, } from "../constants/actionTypes";
+import { FETCH_USERS, FETCH_USER, CREATE, UPDATEROLE, DELETE, } from "../constants/actionTypes";
 
 export default (users = [], action) => {
     switch (action.type) {

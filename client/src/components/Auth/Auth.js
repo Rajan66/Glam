@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
+
 import { useNavigate } from 'react-router-dom'
-import { createUser, getUsers } from '../../actions/user'
 import { useDispatch, useSelector } from 'react-redux'
+
+import { createUser, getUsers, getUser } from '../../actions/user'
+import { getUserOrders } from '../../actions/order'
 import Login from './Login'
 
 const Auth = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const users = useSelector((state) => state.user)
+  const [uid, setUid] = useState('')
 
   const [auth, setAuth] = useState(() => {
     const storedAuth = window.localStorage.getItem('auth');
@@ -28,26 +32,19 @@ const Auth = () => {
         setAuth(true)
         userCred.getIdToken()
           .then((token) => setToken(token))
-        dispatch(getUsers())
       }
     })
+    dispatch(getUsers())
+ 
   }, [])
-
-  useEffect(() => {
-    if (auth) {
-      dispatch(getUsers())
-    }
-  }, [auth])
 
   useEffect(() => {
     if (users.length > 0) {
       const currentUser = firebase.auth().currentUser;
       const foundUser = users.find((user) => user?.uid === currentUser?.uid)
-      if (foundUser.role === 'moderator') {
+      if (foundUser && foundUser.role === 'moderator') {
         setIsAdmin(true);
         window.localStorage.setItem('isAdmin', true);
-      }else{
-        navigate('/')
       }
     }
   }, [users]);
