@@ -6,7 +6,7 @@
     left: 0;
     z-index: 2; /* other values overlaps the sidebar */
     transition: .3s ease-in;
-    background-color: #fff5ea;
+    background-color: #f8f7f4;
 }
 
 nav{
@@ -14,7 +14,7 @@ nav{
     width: 100%;
     top: 0;
     z-index: inherit;
-    background-color: #fff5ea;
+    background-color: #f8f7f4;
 }
 /* .header .navbar {
     display: flex;
@@ -26,13 +26,13 @@ nav{
     padding: 0 1rem;
 } */
 
-.header .nav-menu a {
+header nav ul a {
+    text-decoration: none;
     color: #000;
 }
 
 .hr{
     margin: 2px;
-    color: rgba(184, 184, 184, 0.863);
 }
 
 .down {
@@ -42,7 +42,7 @@ nav{
     text-decoration: none;
     cursor: not-allowed;
     opacity: 0.7;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 2px rgba(65, 44, 44, 0.5);
 
 }
 
@@ -89,13 +89,22 @@ nav{
         max-width: 100%;
     } */
 
+    header nav ul a {
+        text-decoration: none;
+        color: #fff;
+    }
+
     .ham {
         display: block;
     }
 
-    .header ul{
-        text-decoration: none;
-        
+    /* .header .nav-menu a{
+        color: #fff;
+        background-color: #fff;
+    } */
+
+    header  ul{
+        text-decoration: none;   
     }
 
     .nav-menu {

@@ -1,45 +1,71 @@
-.about{
+.block{
     background-color: #f8f8f8;
-    margin: auto;
     width: 100%;
-}
-
-.about .col-2{
-    width: 1240px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-}
-
-.about .container h2{
-    font-size: 3rem;
-}
-
-.about .container h2:hover{
-    text-decoration: underline 3px solid var(--secondary-color);
-}
-
-.about .container{
+    place-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 3rem;
+    padding: 1rem;
+    margin-bottom: 30px;
+}
+
+.block p:first-child{
+    text-decoration: underline;
+    text-decoration-color: fuchsia;
+    font-size: large;
+    cursor: default;
+}
+
+.block p:first-child:hover{
+    color: rgba(0, 0, 0,0.7);
+}
+
+.block button{
+    margin: 1rem 1rem;
+    width: 150px;
+    background-color: rgb(241, 57, 57);
+    border: 1px solid rgb(241, 57, 57);
+    color: #333;
+}
+
+.block button:hover{
+    background-color: rgb(241, 82, 82);
+    border: 1px solid rgb(241, 82, 82);
+}
+
+/* .about{
+    background-color: #f8f8f8;
+    width: 100%;
+}
+
+.about .col-2{
+    width: 1000px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.image{
+    margin-right: 5px;
+}
+
+.about .container h3{
+    font-size: 2rem;
 }
 
 .about .container p:first-of-type{
     margin: 2rem 0;
 }
 
-.about .container p:nth-child(4){
+.about .container p:nth-child(3){
     font-size: 1.5rem;
-    font-style: italic;
     font-weight: 600;
 }
 
-.about button{
-    color: rgb(78, 40, 192);
-}
+
+
+
 
 @media screen and (max-width:940px) {
     .about .col-2{
@@ -62,4 +88,4 @@
     .about button{
         margin-bottom: 1rem;
     }
-}
+} */

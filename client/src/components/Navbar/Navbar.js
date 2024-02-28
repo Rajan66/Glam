@@ -59,7 +59,7 @@ const Navbar = () => {
 
   }, [])
 
-  window.addEventListener('scroll', changeColor)
+  // window.addEventListener('scroll', changeColor)
 
 
   const handleLogin = () => {
@@ -70,24 +70,23 @@ const Navbar = () => {
   return (
     <>
       <header className={color ? 'header header-bg' : 'header'}>
-        {/* // {color ? 'header header-bg' : 'header'} */}
         {/* <nav className='navbar'> */}
-        <nav className='flex justify-between items-center md:py-1 pt-6 pb-0 pr-6'>
+        <nav className='flex justify-between items-center md:py-1 pt-6 pb-0 pr-20 pl-10'>
           <a to='/' className='logo'>
             <img src={logo} alt='logo' />
           </a>
           <div className='ham' onClick={handleClick}>
-            {click ? (<FaTimes size={30} style={{ color: '#fff' }} />)
-              : (<FaBars size={30} style={{ color: '#fff' }} />)}
+            {click ? (<FaTimes size={30} style={{ color: '#000' }} />)
+              : (<FaBars size={30} style={{ color: '#000' }} />)}
           </div>
-          <div className='text-lg text-black sm:flex gap-4'>
+          <div className='text-lg sm:flex gap-4'>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
-              <li className='nav-item cursor-pointer'>
+              {/* <li className='nav-item cursor-pointer'>
                 <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} onClick={closeMenu}>Home</Link>
               </li>
-              <li className='nav-item cursor-pointer'>
+              <li className='nav-item cursor-pointer' >
                 <Link to="about" spy={true} offset={-100} duration={500} onClick={closeMenu}>About</Link>
-              </li>
+              </li> */}
               <li className='nav-item'>
                 <div onClick={() => setIsOpen(!isOpen)}
                   className='cursor-pointer flex relative sm:justify-center items-center'>
@@ -115,7 +114,7 @@ const Navbar = () => {
             </ul>
           </div>
         </nav>
-        <hr className='hr' />
+        <hr className='m-1' />
         <div className='down'>
           <div className='pt-0'>
             <ul className='lg:flex items-center justify-between text-black container hidden'>
