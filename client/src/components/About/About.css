@@ -1,4 +1,4 @@
-.block{
+/* .block{
     background-color: #f8f8f8;
     width: 100%;
     place-items: center;
@@ -32,7 +32,7 @@
 .block button:hover{
     background-color: rgb(241, 82, 82);
     border: 1px solid rgb(241, 82, 82);
-}
+} */
 
 /* .about{
     background-color: #f8f8f8;

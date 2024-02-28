@@ -37,7 +37,7 @@ const ProductDetails = () => {
                 <div className="p-3 max-w-7xl m-auto">
                     <div className='mt-0'>
                         <a href='/' className='text-gray-600 no-underline'>Home</a>
-                        <a href='/shop' className='font-bold text-black no-underline'> /Shop</a>
+                        <a href='/products' className='font-bold text-black no-underline'> / Shop</a>
                     </div>
                     <div className="mt-5 sm:mt-10 ">
                         <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6 h-max">
