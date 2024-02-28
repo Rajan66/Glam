@@ -15,11 +15,18 @@ const ProductDetails = () => {
     const dispatch = useDispatch()
     const product = useSelector((state) => state.products.find(item => item._id === id));
 
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        setLoading(true); // Set loading to true when starting to fetch data
         dispatch(getProduct(id))
-    }, [dispatch, id])
+            .then(() => setLoading(false)) // Set loading to false when data is fetched
+            .catch(() => setLoading(false)); // In case of an error, set loading to false as well
+    }, [dispatch, id]);
 
+    if (loading) {
+        return <div>Loading...</div>; // Show loading screen while data is being fetched
+    }
     return (
         <>
             <section className="overflow-hidden bg-gray py-11 font-poppins dark:bg-gray-800">
@@ -53,7 +60,7 @@ const ProductDetails = () => {
                                             Add to Cart
                                         </button>
                                     </div>
-                                 
+
                                 </div>
                             </div>
                         </div>

@@ -1,13 +1,11 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { Grid } from '@mui/material'
+import React, { useEffect } from 'react'
 import Product from './Product/Product'
 
-import './styles.css'
-import Navbar from '../Navbar/Navbar'
 import { Link } from 'react-router-dom'
 
-const Products = ({ products, setCurrentId }) => {
+import './styles.css'
+
+const Products = ({products}) => {
     return (
         <>
             <section className='py-16'>
