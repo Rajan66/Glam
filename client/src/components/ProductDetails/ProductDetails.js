@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import Navbar from '../Navbar/Navbar'
 import { IoMdAdd, IoMdClose, IoMdRemove } from 'react-icons/io'
 import { getProduct } from '../../actions/products'
 import { CartContext } from '../Cart/CartContext'
@@ -18,45 +19,61 @@ const ProductDetails = () => {
 
     useEffect(() => {
         dispatch(getProduct(id))
+        window.scrollTo({top:0, behavior:'smooth'})
     }, [dispatch, id])
 
     return (
         <>
-            <section className="overflow-hidden bg-gray py-11 font-poppins dark:bg-gray-800">
-                <div className="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
-                    <div className="flex flex-wrap -mx-4">
-                        <div className="w-full px-4 md:w-1/2 ">
-                            <div className="sticky top-0 z-50 overflow-hidden ">
-                                <div className="relative mb-6 lg:mb-10 lg:h-2/4 "><br></br><br></br>
-                                    <img src={product.productImage} className="object-cover w-full lg:h-full"></img>
+        <Navbar />
+            <section className="mt-19 mt-5 max-w-screen-2xl container mx-auto xl:px-28 px-4">
+                <div className="p-3 max-w-7xl m-auto">
+                    <div className='mt-0'>
+                        <a href='/' className='text-gray-600 no-underline'>Home</a>
+                        <a href='/shop' className='font-bold text-black no-underline'> /Shop</a>
+                    </div>
+                    <div className="mt-5 sm:mt-10 ">
+                        <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6 h-max">
+                                <div className="relative mb-6 lg:mb-10 lg:h-2/4 ">
+                                    <img src={product.productImage} className=" w-full "></img>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="w-full px-4 md:w-1/2 ">
-                            <div className="lg:pl-20">
+                            
                                 <div className="mb-8 ">
-                                    <h2 className="max-w-xl mt-2 mb-6 text-2xl font-bold dark:text-gray-400 md:text-4xl"> {product.title}</h2>
-
-                                    <p className="max-w-md mb-8 text-gray-700 dark:text-gray-400">
+                                    <h2 className="title text-left"> {product.title}</h2>
+                                    <p className="mt-3 text-gray-600 text-base leading-6 text-justify sm:text-left sm:mt-4">
                                         {product.description}
                                     </p>
-                                    <p className="inline-block mb-8 text-4xl font-bold text-gray-700 dark:text-gray-400 ">
+                                    
+                                    <p className="text-xl text-red-500 font-semibold sm:text-2xl ">
                                         <span>Rs. {product.price}</span>
                                     </p>
-                                    {/* <p className="text-green-600 dark:text-green-300 ">7 in stock</p> */}
-                                </div>
-
-                                <div className="flex flex-wrap items-center -mx-4 py-5 ">
-                                    <div className="w-full px-4 mb-4 lg:w-1/2 lg:mb-0">
+                                    <div className='mt-4'>
+                                        <div className='text-left flex flex-col gap-2 w-full'>
+                                        <label className='font-semibold'>Quantity</label>
+                                        <input type='number' name='price' id='price' defaultValue={1} required 
+                                        className='border border-gray-300 text-sm font-semibold mb-1 max-w-full 
+                                        w-full outline-none rounded-md m-0 py-3 px-4 md:py-3 md:px-4 focus:border-red-500'/>
+                                    </div>
+                                    
+                                    <div className="w-full text-left my-4">
                                         <button onClick={() => addToCart(product, product._id)}
-                                            className="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
-                                            Add to Cart
+                                            className="flex justify-center items-center gap-2 w-full py-3
+                                            px-1 bg-red-500 text-white font-bold border border-red-500 rounded-md ease-in-out
+                                            duration-150 shadow-slate-600 hover:bg-white hover:text-red-500
+                                            lg:m-0 md:px-6">
+                                                <span> Add to Cart</span>
                                         </button>
                                     </div>
-                                 
                                 </div>
+                                {/* <p className="text-green-600 dark:text-green-300 ">7 in stock</p> */}
                             </div>
                         </div>
+                    </div>
+                    <div className='text-black/75 mt-12'>
+                        <p>loksjfdnfwoihfjdnoijsds</p>
+                        <p>loksjfdnfwoihfjdnoijsds</p>
+                        <p>loksjfdnfwoihfjdnoijsds</p>
+                        <p>loksjfdnfwoihfjdnoijsds</p>
+                        <p>loksjfdnfwoihfjdnoijsds</p>
                     </div>
                 </div>
             </section >
