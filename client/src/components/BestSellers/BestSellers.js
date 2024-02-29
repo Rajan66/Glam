@@ -58,7 +58,7 @@ const BestSellers = ({ products }) => {
                                     <img
                                         src={product.productImage}
                                         alt={product.title}
-                                        className="mx-auto w-full hover:scale-105 transition-all duration-300"
+                                        className="mx-auto w-full h-[250px] hover:scale-105 transition-all duration-300"
                                     />
                                 </Link>
                                 <div className="mt-4 px-4 relative">
