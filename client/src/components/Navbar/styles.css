@@ -1,5 +1,5 @@
  .header {
-    position: fixed;
+    /* position: fixed; */
     height: 4.5rem;
     width: 100%;
     top: 0;
@@ -10,7 +10,7 @@
 }
 
 nav{
-    /* position: fixed; */
+    position: fixed;
     width: 100%;
     top: 0;
     z-index: inherit;
