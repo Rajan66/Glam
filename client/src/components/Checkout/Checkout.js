@@ -15,6 +15,8 @@ const Checkout = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { cart, total, clearCart } = useContext(CartContext)
+  const [payment,setPayment] = useState(false)
+  
 
   const [order, setOrder] = useState({
     products: [
@@ -43,6 +45,7 @@ const Checkout = () => {
         title: item.title,
         quantity: item.amount
       })),
+      status:'',
       totalPrice: total + 100,
       shippingAddress: {
         ...order.shippingAddress,
@@ -58,6 +61,11 @@ const Checkout = () => {
     if (!name || !address || !city || !state) {
       alert('Please fill out all required fields.');
       return;
+    }
+    if(payment){
+      order.status = 'Fulfilled'
+    }else{
+      order.status = 'Unpaid'
     }
     dispatch(createOrder(order))
     clearCart()

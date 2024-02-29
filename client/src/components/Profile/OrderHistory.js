@@ -18,6 +18,7 @@ const OrderHistory = ({ orders }) => {
       {orders.map((order) => (
         <div key={order._id}>
           <p>Order id: {order._id}</p>
+          <p>Status: {order.status}</p>
           {order.products.map((product) => (
             <div key={product.productId}>
               <p>Product Title: {product.title} x {product.quantity}</p>

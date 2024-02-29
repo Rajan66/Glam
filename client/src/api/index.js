@@ -2,7 +2,9 @@ import axios from 'axios';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
-const API = axios.create({ baseURL: "http://localhost:5000" })
+const API = axios.create({
+    baseURL: "http://localhost:5000"
+})
 
 let unsubscribe; // To store the unsubscribe function
 
@@ -49,6 +51,7 @@ export const deleteProduct = (id) => API.delete(`/products/${id}`)
 export const fetchUsers = () => API.get('/users')
 // export const fetchUser = (id) => API.get(`/users/${id}`)
 export const createUser = (newUser) => API.post(`/users`, newUser)
+export const updateUser = (id, updatedUser) => API.patch(`/users/${id}`, updatedUser)
 
 
 export const fetchOrders = () => API.get('/orders')

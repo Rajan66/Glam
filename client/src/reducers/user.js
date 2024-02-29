@@ -1,4 +1,4 @@
-import { FETCH_USERS, FETCH_USER, CREATE, UPDATEROLE, DELETE, } from "../constants/actionTypes";
+import { FETCH_USERS, UPDATE, CREATE, UPDATEROLE, DELETE, } from "../constants/actionTypes";
 
 export default (users = [], action) => {
     switch (action.type) {
@@ -6,6 +6,8 @@ export default (users = [], action) => {
             return action.payload
         case CREATE:
             return [...users, action.payload]
+        case UPDATE:
+            return users.map((user) => (user.id === action.payload ? action.payload : user))
         default:
             return users
     }
