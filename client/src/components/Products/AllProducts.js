@@ -98,15 +98,15 @@ const AllProducts = () => {
             </button>
           </div>
 
-          <div className="flex justify-end mb-2 mt-20 rounded-sm">
-            <div className="bg-black mt-20 mt-5 p-2 ">
+          <div className="flex justify-end mb-5 rounded-sm">
+            <div className="bg-black mt-24 p-2 ">
               <FaFilter className="text-white h-4 w-4" />
             </div>
             <select
               id="sort"
               onChange={(e) => handleSortChange(e.target.value)}
               value={sortOption}
-              className="bg-black text-white px-2 py-1 mt-20 mt-5 rounded-sm"
+              className="bg-black text-white mt-24 rounded-sm"
             >
               <option value="default"> Default</option>
               <option value="A-Z">A-Z</option>

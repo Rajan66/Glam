@@ -114,8 +114,9 @@ const Navbar = () => {
             </ul>
           </div>
         </nav>
-        <hr className='m-1' />
-        <div className='down'>
+        <br/>
+        
+        {/* <div className='down'>
           <div className='pt-0'>
             <ul className='lg:flex items-center justify-between text-black container hidden'>
               {
@@ -127,7 +128,7 @@ const Navbar = () => {
               }
             </ul>
           </div>
-        </div>
+        </div> */}
       </header >
 
     </>
