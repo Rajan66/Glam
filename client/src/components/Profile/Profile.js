@@ -36,11 +36,10 @@ const MainContent = ({ activeContent }) => {
             const foundUser = users.find((user) => user?.uid === currentUser?.uid)
             setUser(foundUser)
         }
-        console.log(user)
     }, [users]);
 
     return (
-        <div className="flex-grow bg-gray-200 p-8">
+        <div className=" ml-64 bg-gray-200 p-8 overflow-y-hidden">
             {activeContent === 'account' && <AccountPage user={user} />}
             {activeContent === 'order' && <OrderHistory orders={orders} />}
             {activeContent === 'logout' && <div>This is the logout page</div>}
@@ -84,21 +83,21 @@ const Profile = () => {
     return (
         <>
             {auth ? (
-                <>
-                    < Navbar />
-                    <div className="h-screen flex items-center justify-center">
-                        <div className='flex bg-zinc-50 w-full h-full'>
-                            <div className="bg-gray-800 text-white h-full w-64">
-                                <div className="p-4 cursor-pointer" onClick={handleAccountClick}>
-                                    Your Account
-                                </div>
-                                <div className="p-4 cursor-pointer" onClick={handleOrderClick}>Order History</div>
-                                <div className="p-4 cursor-pointer" onClick={handleLogout}>Logout</div>
-                            </div>
-                            <MainContent activeContent={activeContent} />
-                        </div>
-                    </div>
-                </>
+         <>
+         <Navbar />
+         <div className="h-screen flex-grow">
+             <div className="bg-gray-800 text-white w-64 fixed h-full overflow-y-auto">
+                 <div className="p-4 cursor-pointer" onClick={handleAccountClick}>
+                     Your Account
+                 </div>
+                 <div className="p-4 cursor-pointer" onClick={handleOrderClick}>Order History</div>
+                 <div className="p-4 cursor-pointer" onClick={handleLogout}>Logout</div>
+             </div>
+         <div className='flex-grow'>
+                 <MainContent activeContent={activeContent}/>
+                 </div>
+         </div>
+     </>
             )
                 : (
                     <div>

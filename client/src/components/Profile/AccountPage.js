@@ -15,21 +15,9 @@ const AccountPage = ({ user }) => {
             setNewProfile(user)
             setLoading(false)
         }
-        console.log(user)
     }, [user])
 
     const handleSubmit = () => {
-        // e.preventDefault()
-        // const {email,name,contact} = newProfile
-        // if(!email){
-        //     setNewProfile({email: user.email})
-        // }
-        // if(!name){
-        //     setNewProfile({email: user.name})
-        // }
-        // if(!contact){
-        //     setNewProfile({contact: user.contact})
-        // }
         dispatch(updatedUser(user._id,newProfile))
     }
 
@@ -38,7 +26,7 @@ const AccountPage = ({ user }) => {
     }
 
     return (
-        <div className="container mx-auto">
+        <div className="container h-screen">
 
             <form className="grid gap-4">
                 <div className="">

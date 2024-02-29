@@ -11,10 +11,9 @@ const OrderHistory = ({ orders }) => {
     }
   }, [orders])
 
-  console.log(orders[0]._id)
 
   return (
-    <div className='container w-full h-full overflow-y-auto'>
+    <div className='container'>
       {orders.map((order) => (
         <div key={order._id}>
           <p>Order id: {order._id}</p>
