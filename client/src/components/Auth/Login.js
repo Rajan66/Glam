@@ -7,10 +7,7 @@ const Login = ({handleGoogleLogin}) => {
     return (
         <div className="w-full h-screen flex flex-col sm:flex-row items-start">
         <div className='relative w-full sm:w-1/2 h-1/2 sm:h-full flex flex-col'>
-            <div className='absolute top-[20%] left-[10%] flex flex-col'>
-                <h1 className='text-4xl text-white font-bold my-4'>Wake up and makeup</h1>
-                <p className='text-xl text-white font-normal'></p>
-            </div>
+    
             <img src={COVER_IMAGE} className="w-full h-full object-cover" alt="Cover" />
         </div>
         <div className='w-full sm:w-1/2 h-1/2 sm:h-full bg-[#f5f5f5] flex flex-col p-8 justify-between items-center'>

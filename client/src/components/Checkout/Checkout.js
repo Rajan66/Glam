@@ -62,11 +62,7 @@ const Checkout = () => {
       alert('Please fill out all required fields.');
       return;
     }
-    if(payment){
-      order.status = 'Fulfilled'
-    }else{
-      order.status = 'Unpaid'
-    }
+    order.status = 'Pending'
     dispatch(createOrder(order))
     clearCart()
     navigate('/') // navigate to payment gateway

@@ -71,7 +71,7 @@ const AllProducts = () => {
       <div>
 
         <div className="flex flex-col md:flex-row flex-wrap md:justify-between items-center space-y-3 mb-8">
-          <div className="flex flex-row justify-start md:items-center md:gap-8 gap-4 mt-20 mt-5 flex-wrap">
+          <div className="flex flex-row justify-start md:items-center md:gap-8 gap-4 mt-5 flex-wrap">
             <button
               onClick={showAll}
               className={selectedCategory === "all" ? "active" : ""}

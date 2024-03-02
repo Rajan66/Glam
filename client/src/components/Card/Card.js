@@ -8,7 +8,7 @@ import { CartContext } from '../Cart/CartContext'
 const Card = ({ filteredItems }) => {
     const { addToCart } = useContext(CartContext)
     return (
-        <section className='py-16'>
+        <section className=''>
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0">
                     {filteredItems.slice(0, 8).map((item) => (

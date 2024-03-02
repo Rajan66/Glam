@@ -18,7 +18,6 @@ const BestSellers = ({ products }) => {
                 <h2 className="text-3xl font-semibold capitalize mb-5">
                     Best Sellers
                 </h2>
-                <p className="text-black/75 capitalize md:w-2/3 mx-auto mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus arcu nunc, fermentum quis sapien in, placerat scelerisque risus. Class aptent taciti sociosqu ad litora torquent per </p>
             </div>
 
             {/* best seller products card */}

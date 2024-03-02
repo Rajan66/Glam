@@ -75,13 +75,7 @@ const ProductDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='text-black/75 mt-12'>
-                        <p>loksjfdnfwoihfjdnoijsds</p>
-                        <p>loksjfdnfwoihfjdnoijsds</p>
-                        <p>loksjfdnfwoihfjdnoijsds</p>
-                        <p>loksjfdnfwoihfjdnoijsds</p>
-                        <p>loksjfdnfwoihfjdnoijsds</p>
-                    </div>
+            
                 </div>
             </section >
         </>

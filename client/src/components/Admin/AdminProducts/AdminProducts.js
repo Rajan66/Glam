@@ -4,7 +4,6 @@ import Form from './Form/Form'
 import { getProducts } from '../../../actions/products'
 import { useDispatch } from 'react-redux'
 
-import './AdminProducts.css'
 
 const Products = ({ currentId, setCurrentId }) => {
     const dispatch = useDispatch()
@@ -13,13 +12,14 @@ const Products = ({ currentId, setCurrentId }) => {
     }, [])
 
     return (
-        <div className='main'>
-            <div className='productTable'>
-                <AllProducts setCurrentId={setCurrentId} />
-            </div>
-            <div className='form'>
+        <div className='mx-10 mt-4 flex flex-wrap  h-screen'>
+            <div className=''>
                 <Form currentId={currentId} setCurrentId={setCurrentId} />
             </div>
+            <div className='mt-5 overflow-y-auto'>
+                <AllProducts setCurrentId={setCurrentId} />
+            </div>
+
         </div>
     )
 }

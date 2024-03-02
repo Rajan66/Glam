@@ -45,8 +45,12 @@ const Admin = () => {
         <>
             {isAdmin ? (
                 <div className='App'>
-                    <Sidebar SidebarData={SidebarData} handleSidebarClick={handleSidebarClick} currentComponent={currentComponent} />
-                    {renderComponent()}
+                    <div className='App h-screen fixed flex'>
+                        <Sidebar SidebarData={SidebarData} handleSidebarClick={handleSidebarClick} currentComponent={currentComponent} />
+                    </div>
+                    <div className='ml-[360px]'>
+                        {renderComponent()}
+                    </div>
                 </div >
             ) : (
                 <div>

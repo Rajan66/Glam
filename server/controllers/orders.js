@@ -29,6 +29,16 @@ const getOrder = async (req, res) => {
     }
 }
 
+// const updateOrder = async (req, res) => {
+//     const { id: _id } = req.params
+//     const product = req.body
+//     if (!mongoose.Types.ObjectId.isValid(_id)) {
+//         res.status(404).send('No product with that id')
+//     }
+//     const updatedProduct = await Product.findByIdAndUpdate(_id, { ...product, _id }, { new: true })
+//     res.json(updatedProduct)
+// }
+
 const createOrder = async (req, res) => {
     const order = req.body
     const newOrder = await new Order({ ...order })
