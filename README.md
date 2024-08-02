@@ -1,1 +1,3 @@
-An E-commerce website that provides a beautiful and seamless interface for you to browse and purchase makeup products. 
+## GlamHour
+GlamHour is an e-commerece platform for makeup products.
+Built using MERN stack. This was a part of my college project.
